@@ -57,7 +57,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUS\ProductBrandBUS.cs" />
-    <Compile Include="BUS\ProductsSuppliersBUS.cs" />
     <Compile Include="BUS\SupplierBUS.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -84,33 +83,13 @@
     <Compile Include="Infrastructures\ModelState.cs" />
     <Compile Include="Infrastructures\Validator.cs" />
     <Compile Include="Infrastructures\ObservableListSource .cs" />
-    <Compile Include="Migrations\201910170320243_InitialCreate.cs" />
-    <Compile Include="Migrations\201910170320243_InitialCreate.designer.cs">
-      <DependentUpon>201910170320243_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910170409366_AddProductAndRelated.cs" />
-    <Compile Include="Migrations\201910170409366_AddProductAndRelated.designer.cs">
-      <DependentUpon>201910170409366_AddProductAndRelated.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910170952390_UpdateJustForSure.cs" />
-    <Compile Include="Migrations\201910170952390_UpdateJustForSure.designer.cs">
-      <DependentUpon>201910170952390_UpdateJustForSure.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910170957426_DeleteAllExceptProductAndProductBrand_FixedBugs.cs" />
-    <Compile Include="Migrations\201910170957426_DeleteAllExceptProductAndProductBrand_FixedBugs.designer.cs">
-      <DependentUpon>201910170957426_DeleteAllExceptProductAndProductBrand_FixedBugs.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910171017220_ChangeObservableListGetMethodInProductBrand.cs" />
-    <Compile Include="Migrations\201910171017220_ChangeObservableListGetMethodInProductBrand.designer.cs">
-      <DependentUpon>201910171017220_ChangeObservableListGetMethodInProductBrand.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910171028381_Add_Promotion_Supplier_PRoductType_Back.cs" />
-    <Compile Include="Migrations\201910171028381_Add_Promotion_Supplier_PRoductType_Back.designer.cs">
-      <DependentUpon>201910171028381_Add_Promotion_Supplier_PRoductType_Back.cs</DependentUpon>
+    <Compile Include="Migrations\201910201510347_Init.cs" />
+    <Compile Include="Migrations\201910201510347_Init.designer.cs">
+      <DependentUpon>201910201510347_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
-    <Compile Include="Models\DTOs\SuppliersProducts.cs" />
+    <Compile Include="Models\DTOs\SupplierProductDTO.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductBrand.cs" />
     <Compile Include="Models\ProductType.cs" />
@@ -128,23 +107,8 @@
     <EmbeddedResource Include="GUIs\Manager\SupplierForm.resx">
       <DependentUpon>SupplierForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910170320243_InitialCreate.resx">
-      <DependentUpon>201910170320243_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910170409366_AddProductAndRelated.resx">
-      <DependentUpon>201910170409366_AddProductAndRelated.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910170952390_UpdateJustForSure.resx">
-      <DependentUpon>201910170952390_UpdateJustForSure.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910170957426_DeleteAllExceptProductAndProductBrand_FixedBugs.resx">
-      <DependentUpon>201910170957426_DeleteAllExceptProductAndProductBrand_FixedBugs.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910171017220_ChangeObservableListGetMethodInProductBrand.resx">
-      <DependentUpon>201910171017220_ChangeObservableListGetMethodInProductBrand.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910171028381_Add_Promotion_Supplier_PRoductType_Back.resx">
-      <DependentUpon>201910171028381_Add_Promotion_Supplier_PRoductType_Back.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201910201510347_Init.resx">
+      <DependentUpon>201910201510347_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -156,12 +120,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\QuanLySieuThi_Version2.Models.DTOs.SuppliersProducts.datasource" />
+    <None Include="Properties\DataSources\QuanLySieuThi_Version2.Models.DTOs.SupplierProductDTO.datasource" />
     <None Include="Properties\DataSources\QuanLySieuThi_Version2.Models.Product.datasource" />
     <None Include="Properties\DataSources\QuanLySieuThi_Version2.Models.ProductBrand.datasource" />
     <None Include="Properties\DataSources\QuanLySieuThi_Version2.Models.ProductType.datasource" />
     <None Include="Properties\DataSources\QuanLySieuThi_Version2.Models.Promotion.datasource" />
     <None Include="Properties\DataSources\QuanLySieuThi_Version2.Models.Supplier.datasource" />
+    <None Include="Properties\DataSources\QuanLySieuThi_Version2.Models.SupplierProduct.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

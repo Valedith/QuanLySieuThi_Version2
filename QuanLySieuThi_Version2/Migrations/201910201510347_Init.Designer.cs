@@ -7,13 +7,13 @@ namespace QuanLySieuThi_Version2.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.3.0")]
-    public sealed partial class UpdateJustForSure : IMigrationMetadata
+    public sealed partial class Init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateJustForSure));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Init));
         
         string IMigrationMetadata.Id
         {
-            get { return "201910170952390_UpdateJustForSure"; }
+            get { return "201910201510347_Init"; }
         }
         
         string IMigrationMetadata.Source

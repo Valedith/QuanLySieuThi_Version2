@@ -20,6 +20,7 @@ namespace QuanLySieuThi_Version2.BUS
             db = new ApplicationDbContext();
             db.Suppliers.Load();
             db.Products.Load();
+            db.SupplierProducts.Load();
         }
         #region Supplier's methods
         public BindingList<Supplier> GetAllSuppliersBindingList()
@@ -166,7 +167,7 @@ namespace QuanLySieuThi_Version2.BUS
                 throw new Exception("Some unexpected error has occured, please contact your administrator.\n" + ex.Message);
             }
         }
-        public BindingList<Product> GetAllProductssWithNamePlusId()
+        public BindingList<Product> GetAllProductsWithNamePlusId()
         {
             try
             {
@@ -186,26 +187,192 @@ namespace QuanLySieuThi_Version2.BUS
                 throw new Exception("Some unexpected error has occured, please contact your administrator.\n" + ex.Message);
             }
         }
-        public BindingList<SuppliersProducts> GetAllSuppliersProductsBindingList()
+        public List<SupplierProductDTO> GetAllSupplierProductDTOWithNamePlusId()
         {
             try
             {
-                BindingList<SuppliersProducts> suppliersProducts = new BindingList<SuppliersProducts>();
-                foreach (var supplier in db.Suppliers.Include(s => s.Products).Where(s => s.IsActive == true))
+                List<SupplierProductDTO> suppliersProducts = new List<SupplierProductDTO>();
+                foreach (var supplierProduct in db.SupplierProducts
+                            .Where(sp => sp.Supplier.IsActive == true&& sp.Product.IsActive == true).ToList())
                 {
-                    foreach (var product in supplier.Products.Where(p=>p.IsActive == true))
+                    if(suppliersProducts.FirstOrDefault(sp => sp.SupplierId == supplierProduct.SupplierId) == null)
                     {
-
-                        suppliersProducts.Add(new SuppliersProducts()
+                        suppliersProducts.Add(new SupplierProductDTO()
                         {
-                            SupplierId = supplier.Id,
-                            ProductId = product.Id,
-                            SupplierName = supplier.Name + " (ID: " + supplier.Id + ")",
-                            ProductName = product.Name + " (ID: " + product.Id + ")"
+                            ProductId = supplierProduct.Product.Id,
+                            SupplierId = supplierProduct.Supplier.Id,
+                            SupplierName = supplierProduct.Supplier.Name + " (ID: " + supplierProduct.Supplier.Id + ")",
+                            ProductName = supplierProduct.Product.Name + " (ID: " + supplierProduct.Product.Id + ")"
                         });
                     }
                 }
                 return suppliersProducts;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Some unexpected error has occured, please contact your administrator.\n" + ex.Message);
+            }
+            throw new NotImplementedException();
+        }
+        public BindingList<SupplierProductDTO> GetAllSupplierProductDTOBindingList()
+        {
+            try
+            {
+                BindingList<SupplierProductDTO> suppliersProducts = new BindingList<SupplierProductDTO>();
+                foreach (var supplierProduct in db.SupplierProducts.Where(sp => sp.Supplier.IsActive == true))
+                {
+                    suppliersProducts.Add(new SupplierProductDTO()
+                    {
+                        ProductId = supplierProduct.Product.Id,
+                        SupplierId = supplierProduct.Supplier.Id,
+                        SupplierName = supplierProduct.Supplier.Name,
+                        ProductName = supplierProduct.Product.Name,
+                        IsSupplying = supplierProduct.IsSupplying
+                    });
+                }
+                return suppliersProducts;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Some unexpected error has occured, please contact your administrator.\n" + ex.Message);
+            }
+        }
+        public List<SupplierProductDTO> GetProductsBySupplierWithNamePlusId(int supplierId)
+        {
+            try
+            {
+                List<SupplierProductDTO> supplierProductDTOs = new List<SupplierProductDTO>();
+                foreach(var supplierProduct in db.Suppliers.Find(supplierId).SupplierProducts.Where(sp => sp.Product.IsActive == true).ToList())
+                {
+                    supplierProductDTOs.Add(new SupplierProductDTO() {
+                        ProductId = supplierProduct.ProductId,
+                        SupplierId = supplierProduct.SupplierId,
+                        ProductName = supplierProduct.Product.Name+" (ID: "+supplierProduct.ProductId+")",
+                        SupplierName = supplierProduct.Supplier.Name + " (ID: " + supplierProduct.SupplierId + ")"
+                    });
+                }
+                return supplierProductDTOs;
+            }
+            catch(Exception ex)
+            {
+                throw new Exception("Some unexpected error has occured, please contact your administrator.\n" + ex.Message);
+            }
+        }
+
+        public List<SupplierProductDTO> FindSupplierBySupplierID(int supplierId)
+        {
+            try
+            {
+                List<SupplierProductDTO> supplierProductDTOs = new List<SupplierProductDTO>();
+                Supplier supplier = db.Suppliers.Find(supplierId);
+                if(supplier != null)
+                {
+                    foreach (var supplierProduct in supplier.SupplierProducts.Where(sp => sp.Product.IsActive == true))
+                    {
+                        supplierProductDTOs.Add(new SupplierProductDTO()
+                        {
+                            ProductId = supplierProduct.ProductId,
+                            SupplierId = supplierProduct.SupplierId,
+                            ProductName = supplierProduct.Product.Name,
+                            SupplierName = supplierProduct.Supplier.Name,
+                            IsSupplying = supplierProduct.IsSupplying
+                        });
+                    }
+                }
+                
+                return supplierProductDTOs;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Some unexpected error has occured, please contact your administrator.\n" + ex.Message);
+            }
+        }
+        public List<SupplierProductDTO> FindSupplierBySupplierName(string supplierName)
+        {
+            try
+            {
+                List<SupplierProductDTO> supplierProductDTOs = new List<SupplierProductDTO>();
+                List<Supplier> suppliers = db.Suppliers.Include(s => s.SupplierProducts)
+                    .Where(s => s.Name.Contains(supplierName) && s.IsActive == true).ToList();
+                if (suppliers.Count >0)
+                {
+                    foreach (var supplier in suppliers)
+                    {
+                        foreach (var supplierProduct in supplier.SupplierProducts.Where(sp => sp.Product.IsActive == true).ToList())
+                        {
+                            supplierProductDTOs.Add(new SupplierProductDTO()
+                            {
+                                ProductId = supplierProduct.ProductId,
+                                SupplierId = supplierProduct.SupplierId,
+                                ProductName = supplierProduct.Product.Name,
+                                SupplierName = supplierProduct.Supplier.Name,
+                                IsSupplying = supplierProduct.IsSupplying
+                            });
+                        }
+                    }
+                }
+
+                return supplierProductDTOs;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Some unexpected error has occured, please contact your administrator.\n" + ex.Message);
+            }
+        }
+        public List<SupplierProductDTO> FindSupplierByProductId(int productId)
+        {
+            try
+            {
+                List<SupplierProductDTO> supplierProductDTOs = new List<SupplierProductDTO>();
+                Product product = db.Products.Find(productId);
+                if (product != null)
+                {
+                    foreach (var supplierProduct in product.SupplierProducts.Where(sp => sp.Supplier.IsActive == true))
+                    {
+                        supplierProductDTOs.Add(new SupplierProductDTO()
+                        {
+                            ProductId = supplierProduct.ProductId,
+                            SupplierId = supplierProduct.SupplierId,
+                            ProductName = supplierProduct.Product.Name,
+                            SupplierName = supplierProduct.Supplier.Name,
+                            IsSupplying = supplierProduct.IsSupplying
+                        });
+                    }
+                }
+
+                return supplierProductDTOs;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Some unexpected error has occured, please contact your administrator.\n" + ex.Message);
+            }
+        }
+        public List<SupplierProductDTO> FindSupplierByProductName(string productName)
+        {
+            try
+            {
+                List<SupplierProductDTO> supplierProductDTOs = new List<SupplierProductDTO>();
+                List<Product> products = db.Products.Include(s => s.SupplierProducts)
+                    .Where(s => s.Name.Contains(productName) && s.IsActive ==true).ToList();
+                if (products.Count > 0)
+                {
+                    foreach (var product in products)
+                    {
+                        foreach (var supplierProduct in product.SupplierProducts.Where(sp => sp.Supplier.IsActive == true).ToList())
+                        {
+                            supplierProductDTOs.Add(new SupplierProductDTO()
+                            {
+                                ProductId = supplierProduct.ProductId,
+                                SupplierId = supplierProduct.SupplierId,
+                                ProductName = supplierProduct.Product.Name,
+                                SupplierName = supplierProduct.Supplier.Name,
+                                IsSupplying = supplierProduct.IsSupplying
+                            });
+                        }
+                    }
+                }
+
+                return supplierProductDTOs;
             }
             catch (Exception ex)
             {
@@ -217,9 +384,8 @@ namespace QuanLySieuThi_Version2.BUS
         {
             try
             {
-                Supplier supplier = db.Suppliers.Include(s => s.Products)
-                    .FirstOrDefault(s => s.Id == supplierID);
-                Product product = db.Products.Include(p => p.Suppliers).FirstOrDefault(p => p.Id == productID);
+                Supplier supplier = db.Suppliers.FirstOrDefault(s => s.Id == supplierID);
+                Product product = db.Products.FirstOrDefault(p => p.Id == productID);
                 if (supplier == null)
                 {
                     return new CustomResult(CustomResultType.NotExisted, "Couldn't find this supplier");
@@ -228,7 +394,7 @@ namespace QuanLySieuThi_Version2.BUS
                 {
                     return new CustomResult(CustomResultType.NotExisted, "Couldn't find this product");
                 }
-                if(!supplier.IsActive)
+                if (!supplier.IsActive)
                 {
                     return new CustomResult(CustomResultType.NotExisted, "This Supplier is being locked");
                 }
@@ -236,14 +402,42 @@ namespace QuanLySieuThi_Version2.BUS
                 {
                     return new CustomResult(CustomResultType.NotExisted, "This Product is being locked");
                 }
-                if (supplier.Products.FirstOrDefault(p => p.Id == productID) != null)
+                if (db.SupplierProducts.FirstOrDefault(sp => sp.ProductId == productID && sp.SupplierId == supplier.Id) != null)
                 {
                     return new CustomResult(CustomResultType.Existed, "This Product has already been supplied by this supplier");
                 }
-                supplier.Products.Add(product);
-                product.Suppliers.Add(supplier);
-                db.Set<Supplier>().AddOrUpdate(supplier);
-                db.Set<Product>().AddOrUpdate(product);
+                SupplierProduct supplierProduct = new SupplierProduct()
+                {
+                    Supplier = supplier,
+                    Product = product,
+                    IsSupplying = true
+                };
+
+                db.SupplierProducts.Add(supplierProduct);
+                db.SaveChanges();
+                return new CustomResult(CustomResultType.Succeed);
+            }
+            catch (Exception ex)
+            {
+                return new CustomResult(CustomResultType.UnexpectedError,
+                    "Some unexpected error has occured, please contact your administrator.\n" + ex.Message);
+            }
+
+        }
+        public CustomResult ChangeSupplyingStatusSupplierProduct(int supplierProduct, int productId)
+        {
+            try
+            {
+                SupplierProduct foundSupplierProduct = db.SupplierProducts
+                                                        .FirstOrDefault(sp => sp.ProductId == productId
+                                                          && sp.SupplierId == supplierProduct);
+                if (foundSupplierProduct == null)
+                {
+                    return new CustomResult(CustomResultType.NotExisted,
+                    "Couldn't find this entry, please try again!!");
+                }
+                foundSupplierProduct.IsSupplying = !foundSupplierProduct.IsSupplying;
+                db.Set<SupplierProduct>().AddOrUpdate(foundSupplierProduct);
                 db.SaveChanges();
                 return new CustomResult(CustomResultType.Succeed);
             }
@@ -253,10 +447,35 @@ namespace QuanLySieuThi_Version2.BUS
                     "Some unexpected error has occured, please contact your administrator.\n" + ex.Message);
             }
         }
+        public CustomResult RemoveSupplierProduct(int supplierProduct, int productId)
+        {
+            try
+            {
+                SupplierProduct foundSupplierProduct = db.SupplierProducts
+                                                        .FirstOrDefault(sp => sp.ProductId == productId
+                                                          && sp.SupplierId == supplierProduct);
+                if (foundSupplierProduct == null)
+                {
+                    return new CustomResult(CustomResultType.NotExisted,
+                    "Couldn't find this entry, please try again!!");
+                }
+                db.Set<SupplierProduct>().Remove(foundSupplierProduct);
+                db.SaveChanges();
+                return new CustomResult(CustomResultType.Succeed);
+            }
+            catch (Exception ex)
+            {
+                return new CustomResult(CustomResultType.UnexpectedError,
+                    "Some unexpected error has occured, please contact your administrator.\n" + ex.Message);
+            }
+        }
+        
         #endregion
         public void Dispose()
         {
             db.Dispose();
         }
+
+        
     }
 }

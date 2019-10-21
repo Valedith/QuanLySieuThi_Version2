@@ -35,6 +35,13 @@
             System.Windows.Forms.Label phoneNumberLabel;
             System.Windows.Forms.Label label1;
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.supplierDataGridView = new QuanLySieuThi_Version2.Infrastructures.CustomDataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBoxSupplierActions = new System.Windows.Forms.GroupBox();
             this.btnSearchSupplier = new System.Windows.Forms.Button();
             this.comboBoxSearchOptions = new System.Windows.Forms.ComboBox();
@@ -48,54 +55,53 @@
             this.txtSupplierAddress = new System.Windows.Forms.TextBox();
             this.txtSupplierName = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.suppliersProductsDataGridView = new QuanLySieuThi_Version2.Infrastructures.CustomDataGridView();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suppliersProductsBindingSource_Grid = new System.Windows.Forms.BindingSource(this.components);
-            this.supplierDataGridView = new QuanLySieuThi_Version2.Infrastructures.CustomDataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBoxAddSuppliersProducts_Supplier = new System.Windows.Forms.ComboBox();
-            this.comboBoxAddSuppliersProducts_Products = new System.Windows.Forms.ComboBox();
-            this.btnAddSuppliersProducts = new System.Windows.Forms.Button();
-            this.comboBoxEditSuppliersProducts_Products = new System.Windows.Forms.ComboBox();
-            this.comboBoxEditSuppliersProducts_Suppliers = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.addSuppliersProductsBindingSource_Products = new System.Windows.Forms.BindingSource(this.components);
-            this.addSuppliersProductsBindingSource_Suppliers = new System.Windows.Forms.BindingSource(this.components);
+            this.supplierNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsSupplyimg = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.supplierProductDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.txtSearchSupplierProductValue = new System.Windows.Forms.TextBox();
+            this.btnSearchSupplierProduct = new System.Windows.Forms.Button();
+            this.comboBoxSupplierProductSearchOptions = new System.Windows.Forms.ComboBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btnStopSupplying = new System.Windows.Forms.Button();
+            this.btnREMOVESupplierProduct = new System.Windows.Forms.Button();
+            this.comboBoxEditSuppliersProducts_Products = new System.Windows.Forms.ComboBox();
+            this.removeSupplierProductsBindingSource_Product = new System.Windows.Forms.BindingSource(this.components);
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBoxEditSuppliersProducts_Suppliers = new System.Windows.Forms.ComboBox();
+            this.removeSupplierProductBindingSource_Supplier = new System.Windows.Forms.BindingSource(this.components);
+            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnAddSuppliersProducts = new System.Windows.Forms.Button();
+            this.comboBoxAddSuppliersProducts_Products = new System.Windows.Forms.ComboBox();
+            this.addSupplierProductBindingSource_Product = new System.Windows.Forms.BindingSource(this.components);
+            this.comboBoxAddSuppliersProducts_Supplier = new System.Windows.Forms.ComboBox();
+            this.addSupplierProductBindingSource_Supplier = new System.Windows.Forms.BindingSource(this.components);
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             addressLabel = new System.Windows.Forms.Label();
             isActiveLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
             phoneNumberLabel = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            this.groupBoxSupplierActions.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.suppliersProductsDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.suppliersProductsBindingSource_Grid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.addSuppliersProductsBindingSource_Products)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addSuppliersProductsBindingSource_Suppliers)).BeginInit();
+            this.groupBoxSupplierActions.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.suppliersProductsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierProductDTOBindingSource)).BeginInit();
+            this.groupBox4.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.removeSupplierProductsBindingSource_Product)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.removeSupplierProductBindingSource_Supplier)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.addSupplierProductBindingSource_Product)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addSupplierProductBindingSource_Supplier)).BeginInit();
             this.SuspendLayout();
             // 
             // addressLabel
@@ -151,10 +157,81 @@
             this.groupBox1.Controls.Add(this.groupBoxSupplierActions);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1066, 314);
+            this.groupBox1.Size = new System.Drawing.Size(1218, 314);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Supplier";
+            // 
+            // supplierDataGridView
+            // 
+            this.supplierDataGridView.AllowUserToAddRows = false;
+            this.supplierDataGridView.AllowUserToDeleteRows = false;
+            this.supplierDataGridView.AllowUserToOrderColumns = true;
+            this.supplierDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.supplierDataGridView.AutoGenerateColumns = false;
+            this.supplierDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.supplierDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.supplierDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewCheckBoxColumn1});
+            this.supplierDataGridView.DataSource = this.supplierBindingSource;
+            this.supplierDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.supplierDataGridView.Location = new System.Drawing.Point(382, 19);
+            this.supplierDataGridView.MultiSelect = false;
+            this.supplierDataGridView.Name = "supplierDataGridView";
+            this.supplierDataGridView.ReadOnly = true;
+            this.supplierDataGridView.Size = new System.Drawing.Size(830, 289);
+            this.supplierDataGridView.TabIndex = 11;
+            this.supplierDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.supplierDataGridView_CellDoubleClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 41;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Address";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Address";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "PhoneNumber";
+            this.dataGridViewTextBoxColumn4.HeaderText = "PhoneNumber";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "IsActive";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "IsActive";
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
+            this.dataGridViewCheckBoxColumn1.Width = 51;
+            // 
+            // supplierBindingSource
+            // 
+            this.supplierBindingSource.DataSource = typeof(QuanLySieuThi_Version2.Models.Supplier);
             // 
             // groupBoxSupplierActions
             // 
@@ -291,24 +368,10 @@
             this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Location = new System.Drawing.Point(12, 332);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1066, 369);
+            this.groupBox3.Size = new System.Drawing.Size(1218, 365);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Supplier Details";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox4.Controls.Add(this.groupBox6);
-            this.groupBox4.Controls.Add(this.groupBox5);
-            this.groupBox4.Controls.Add(this.groupBox2);
-            this.groupBox4.Location = new System.Drawing.Point(6, 19);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(362, 342);
-            this.groupBox4.TabIndex = 0;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Actions";
             // 
             // suppliersProductsDataGridView
             // 
@@ -322,104 +385,186 @@
             this.suppliersProductsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.suppliersProductsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.suppliersProductsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8});
-            this.suppliersProductsDataGridView.DataSource = this.suppliersProductsBindingSource_Grid;
+            this.supplierNameDataGridViewTextBoxColumn,
+            this.productNameDataGridViewTextBoxColumn,
+            this.IsSupplyimg});
+            this.suppliersProductsDataGridView.DataSource = this.supplierProductDTOBindingSource;
             this.suppliersProductsDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.suppliersProductsDataGridView.Location = new System.Drawing.Point(382, 19);
             this.suppliersProductsDataGridView.Name = "suppliersProductsDataGridView";
             this.suppliersProductsDataGridView.ReadOnly = true;
-            this.suppliersProductsDataGridView.Size = new System.Drawing.Size(678, 342);
+            this.suppliersProductsDataGridView.Size = new System.Drawing.Size(830, 340);
             this.suppliersProductsDataGridView.TabIndex = 1;
             // 
-            // dataGridViewTextBoxColumn7
+            // supplierNameDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "SupplierName";
-            this.dataGridViewTextBoxColumn7.HeaderText = "SupplierName";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.supplierNameDataGridViewTextBoxColumn.DataPropertyName = "SupplierName";
+            this.supplierNameDataGridViewTextBoxColumn.HeaderText = "SupplierName";
+            this.supplierNameDataGridViewTextBoxColumn.Name = "supplierNameDataGridViewTextBoxColumn";
+            this.supplierNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn8
+            // productNameDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "ProductName";
-            this.dataGridViewTextBoxColumn8.HeaderText = "ProductName";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
+            this.productNameDataGridViewTextBoxColumn.HeaderText = "ProductName";
+            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
+            this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // suppliersProductsBindingSource_Grid
+            // IsSupplyimg
             // 
-            this.suppliersProductsBindingSource_Grid.DataSource = typeof(QuanLySieuThi_Version2.Models.DTOs.SuppliersProducts);
+            this.IsSupplyimg.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.IsSupplyimg.DataPropertyName = "IsSupplyimg";
+            this.IsSupplyimg.HeaderText = "IsSupplyimg";
+            this.IsSupplyimg.Name = "IsSupplyimg";
+            this.IsSupplyimg.ReadOnly = true;
+            this.IsSupplyimg.Width = 69;
             // 
-            // supplierDataGridView
+            // supplierProductDTOBindingSource
             // 
-            this.supplierDataGridView.AllowUserToAddRows = false;
-            this.supplierDataGridView.AllowUserToDeleteRows = false;
-            this.supplierDataGridView.AllowUserToOrderColumns = true;
-            this.supplierDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.supplierDataGridView.AutoGenerateColumns = false;
-            this.supplierDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.supplierDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.supplierDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewCheckBoxColumn1});
-            this.supplierDataGridView.DataSource = this.supplierBindingSource;
-            this.supplierDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.supplierDataGridView.Location = new System.Drawing.Point(382, 19);
-            this.supplierDataGridView.MultiSelect = false;
-            this.supplierDataGridView.Name = "supplierDataGridView";
-            this.supplierDataGridView.ReadOnly = true;
-            this.supplierDataGridView.Size = new System.Drawing.Size(678, 289);
-            this.supplierDataGridView.TabIndex = 11;
-            this.supplierDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.supplierDataGridView_CellDoubleClick);
+            this.supplierProductDTOBindingSource.DataSource = typeof(QuanLySieuThi_Version2.Models.DTOs.SupplierProductDTO);
             // 
-            // dataGridViewTextBoxColumn1
+            // groupBox4
             // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 41;
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox4.Controls.Add(this.groupBox6);
+            this.groupBox4.Controls.Add(this.groupBox5);
+            this.groupBox4.Controls.Add(this.groupBox2);
+            this.groupBox4.Location = new System.Drawing.Point(6, 19);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(370, 340);
+            this.groupBox4.TabIndex = 0;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Actions";
             // 
-            // dataGridViewTextBoxColumn2
+            // groupBox6
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.groupBox6.Controls.Add(this.txtSearchSupplierProductValue);
+            this.groupBox6.Controls.Add(this.btnSearchSupplierProduct);
+            this.groupBox6.Controls.Add(this.comboBoxSupplierProductSearchOptions);
+            this.groupBox6.Location = new System.Drawing.Point(12, 278);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(349, 54);
+            this.groupBox6.TabIndex = 12;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Search";
             // 
-            // dataGridViewTextBoxColumn3
+            // txtSearchSupplierProductValue
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Address";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Address";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.txtSearchSupplierProductValue.Location = new System.Drawing.Point(10, 20);
+            this.txtSearchSupplierProductValue.Name = "txtSearchSupplierProductValue";
+            this.txtSearchSupplierProductValue.Size = new System.Drawing.Size(157, 20);
+            this.txtSearchSupplierProductValue.TabIndex = 14;
             // 
-            // dataGridViewTextBoxColumn4
+            // btnSearchSupplierProduct
             // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "PhoneNumber";
-            this.dataGridViewTextBoxColumn4.HeaderText = "PhoneNumber";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.btnSearchSupplierProduct.Location = new System.Drawing.Point(260, 19);
+            this.btnSearchSupplierProduct.Name = "btnSearchSupplierProduct";
+            this.btnSearchSupplierProduct.Size = new System.Drawing.Size(69, 23);
+            this.btnSearchSupplierProduct.TabIndex = 5;
+            this.btnSearchSupplierProduct.Text = "Search";
+            this.btnSearchSupplierProduct.UseVisualStyleBackColor = true;
+            this.btnSearchSupplierProduct.Click += new System.EventHandler(this.btnSearchSupplierProduct_Click);
             // 
-            // dataGridViewCheckBoxColumn1
+            // comboBoxSupplierProductSearchOptions
             // 
-            this.dataGridViewCheckBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "IsActive";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "IsActive";
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
-            this.dataGridViewCheckBoxColumn1.Width = 51;
+            this.comboBoxSupplierProductSearchOptions.DisplayMember = "ProductId";
+            this.comboBoxSupplierProductSearchOptions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSupplierProductSearchOptions.FormattingEnabled = true;
+            this.comboBoxSupplierProductSearchOptions.Location = new System.Drawing.Point(173, 19);
+            this.comboBoxSupplierProductSearchOptions.Name = "comboBoxSupplierProductSearchOptions";
+            this.comboBoxSupplierProductSearchOptions.Size = new System.Drawing.Size(81, 21);
+            this.comboBoxSupplierProductSearchOptions.TabIndex = 13;
+            this.comboBoxSupplierProductSearchOptions.ValueMember = "ProductId";
             // 
-            // supplierBindingSource
+            // groupBox5
             // 
-            this.supplierBindingSource.DataSource = typeof(QuanLySieuThi_Version2.Models.Supplier);
+            this.groupBox5.Controls.Add(this.btnStopSupplying);
+            this.groupBox5.Controls.Add(this.btnREMOVESupplierProduct);
+            this.groupBox5.Controls.Add(this.comboBoxEditSuppliersProducts_Products);
+            this.groupBox5.Controls.Add(this.label5);
+            this.groupBox5.Controls.Add(this.comboBoxEditSuppliersProducts_Suppliers);
+            this.groupBox5.Controls.Add(this.label4);
+            this.groupBox5.Location = new System.Drawing.Point(12, 146);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(349, 126);
+            this.groupBox5.TabIndex = 1;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Remove/Stop/Unstop";
+            // 
+            // btnStopSupplying
+            // 
+            this.btnStopSupplying.Location = new System.Drawing.Point(170, 97);
+            this.btnStopSupplying.Name = "btnStopSupplying";
+            this.btnStopSupplying.Size = new System.Drawing.Size(173, 23);
+            this.btnStopSupplying.TabIndex = 5;
+            this.btnStopSupplying.Text = "Stop/Unstop Supplying";
+            this.btnStopSupplying.UseVisualStyleBackColor = true;
+            this.btnStopSupplying.Click += new System.EventHandler(this.btnStopSupplying_Click);
+            // 
+            // btnREMOVESupplierProduct
+            // 
+            this.btnREMOVESupplierProduct.BackColor = System.Drawing.Color.DarkRed;
+            this.btnREMOVESupplierProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btnREMOVESupplierProduct.ForeColor = System.Drawing.SystemColors.Info;
+            this.btnREMOVESupplierProduct.Location = new System.Drawing.Point(6, 97);
+            this.btnREMOVESupplierProduct.Name = "btnREMOVESupplierProduct";
+            this.btnREMOVESupplierProduct.Size = new System.Drawing.Size(75, 23);
+            this.btnREMOVESupplierProduct.TabIndex = 10;
+            this.btnREMOVESupplierProduct.Text = "REMOVE";
+            this.btnREMOVESupplierProduct.UseVisualStyleBackColor = false;
+            this.btnREMOVESupplierProduct.Click += new System.EventHandler(this.btnREMOVESupplierProduct_Click);
+            // 
+            // comboBoxEditSuppliersProducts_Products
+            // 
+            this.comboBoxEditSuppliersProducts_Products.DataSource = this.removeSupplierProductsBindingSource_Product;
+            this.comboBoxEditSuppliersProducts_Products.DisplayMember = "ProductName";
+            this.comboBoxEditSuppliersProducts_Products.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEditSuppliersProducts_Products.FormattingEnabled = true;
+            this.comboBoxEditSuppliersProducts_Products.Location = new System.Drawing.Point(64, 65);
+            this.comboBoxEditSuppliersProducts_Products.Name = "comboBoxEditSuppliersProducts_Products";
+            this.comboBoxEditSuppliersProducts_Products.Size = new System.Drawing.Size(256, 21);
+            this.comboBoxEditSuppliersProducts_Products.TabIndex = 8;
+            this.comboBoxEditSuppliersProducts_Products.ValueMember = "ProductId";
+            // 
+            // removeSupplierProductsBindingSource_Product
+            // 
+            this.removeSupplierProductsBindingSource_Product.DataSource = typeof(QuanLySieuThi_Version2.Models.DTOs.SupplierProductDTO);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(10, 33);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(48, 13);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Supplier:";
+            // 
+            // comboBoxEditSuppliersProducts_Suppliers
+            // 
+            this.comboBoxEditSuppliersProducts_Suppliers.DataSource = this.removeSupplierProductBindingSource_Supplier;
+            this.comboBoxEditSuppliersProducts_Suppliers.DisplayMember = "SupplierName";
+            this.comboBoxEditSuppliersProducts_Suppliers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEditSuppliersProducts_Suppliers.FormattingEnabled = true;
+            this.comboBoxEditSuppliersProducts_Suppliers.Location = new System.Drawing.Point(64, 29);
+            this.comboBoxEditSuppliersProducts_Suppliers.Name = "comboBoxEditSuppliersProducts_Suppliers";
+            this.comboBoxEditSuppliersProducts_Suppliers.Size = new System.Drawing.Size(256, 21);
+            this.comboBoxEditSuppliersProducts_Suppliers.TabIndex = 7;
+            this.comboBoxEditSuppliersProducts_Suppliers.ValueMember = "SupplierId";
+            this.comboBoxEditSuppliersProducts_Suppliers.SelectedIndexChanged += new System.EventHandler(this.comboBoxEditSuppliersProducts_Suppliers_SelectedIndexChanged);
+            // 
+            // removeSupplierProductBindingSource_Supplier
+            // 
+            this.removeSupplierProductBindingSource_Supplier.DataSource = typeof(QuanLySieuThi_Version2.Models.DTOs.SupplierProductDTO);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(10, 69);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(47, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Product:";
             // 
             // groupBox2
             // 
@@ -430,66 +575,10 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Location = new System.Drawing.Point(12, 16);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(335, 124);
+            this.groupBox2.Size = new System.Drawing.Size(349, 124);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Add";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.button3);
-            this.groupBox5.Controls.Add(this.comboBoxEditSuppliersProducts_Products);
-            this.groupBox5.Controls.Add(this.label5);
-            this.groupBox5.Controls.Add(this.comboBoxEditSuppliersProducts_Suppliers);
-            this.groupBox5.Controls.Add(this.label4);
-            this.groupBox5.Location = new System.Drawing.Point(12, 146);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(335, 126);
-            this.groupBox5.TabIndex = 1;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Remove";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Supplier:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 62);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Product:";
-            // 
-            // comboBoxAddSuppliersProducts_Supplier
-            // 
-            this.comboBoxAddSuppliersProducts_Supplier.DataSource = this.addSuppliersProductsBindingSource_Suppliers;
-            this.comboBoxAddSuppliersProducts_Supplier.DisplayMember = "Name";
-            this.comboBoxAddSuppliersProducts_Supplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxAddSuppliersProducts_Supplier.FormattingEnabled = true;
-            this.comboBoxAddSuppliersProducts_Supplier.Location = new System.Drawing.Point(64, 23);
-            this.comboBoxAddSuppliersProducts_Supplier.Name = "comboBoxAddSuppliersProducts_Supplier";
-            this.comboBoxAddSuppliersProducts_Supplier.Size = new System.Drawing.Size(256, 21);
-            this.comboBoxAddSuppliersProducts_Supplier.TabIndex = 2;
-            this.comboBoxAddSuppliersProducts_Supplier.ValueMember = "Id";
-            // 
-            // comboBoxAddSuppliersProducts_Products
-            // 
-            this.comboBoxAddSuppliersProducts_Products.DataSource = this.addSuppliersProductsBindingSource_Products;
-            this.comboBoxAddSuppliersProducts_Products.DisplayMember = "Name";
-            this.comboBoxAddSuppliersProducts_Products.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxAddSuppliersProducts_Products.FormattingEnabled = true;
-            this.comboBoxAddSuppliersProducts_Products.Location = new System.Drawing.Point(64, 59);
-            this.comboBoxAddSuppliersProducts_Products.Name = "comboBoxAddSuppliersProducts_Products";
-            this.comboBoxAddSuppliersProducts_Products.Size = new System.Drawing.Size(256, 21);
-            this.comboBoxAddSuppliersProducts_Products.TabIndex = 3;
-            this.comboBoxAddSuppliersProducts_Products.ValueMember = "Id";
             // 
             // btnAddSuppliersProducts
             // 
@@ -501,145 +590,95 @@
             this.btnAddSuppliersProducts.UseVisualStyleBackColor = true;
             this.btnAddSuppliersProducts.Click += new System.EventHandler(this.btnAddSuppliersProducts_Click);
             // 
-            // comboBoxEditSuppliersProducts_Products
+            // comboBoxAddSuppliersProducts_Products
             // 
-            this.comboBoxEditSuppliersProducts_Products.DataSource = this.suppliersProductsBindingSource_Grid;
-            this.comboBoxEditSuppliersProducts_Products.DisplayMember = "ProductName";
-            this.comboBoxEditSuppliersProducts_Products.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxEditSuppliersProducts_Products.FormattingEnabled = true;
-            this.comboBoxEditSuppliersProducts_Products.Location = new System.Drawing.Point(64, 65);
-            this.comboBoxEditSuppliersProducts_Products.Name = "comboBoxEditSuppliersProducts_Products";
-            this.comboBoxEditSuppliersProducts_Products.Size = new System.Drawing.Size(256, 21);
-            this.comboBoxEditSuppliersProducts_Products.TabIndex = 8;
-            this.comboBoxEditSuppliersProducts_Products.ValueMember = "ProductId";
+            this.comboBoxAddSuppliersProducts_Products.DataSource = this.addSupplierProductBindingSource_Product;
+            this.comboBoxAddSuppliersProducts_Products.DisplayMember = "Name";
+            this.comboBoxAddSuppliersProducts_Products.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxAddSuppliersProducts_Products.FormattingEnabled = true;
+            this.comboBoxAddSuppliersProducts_Products.Location = new System.Drawing.Point(64, 59);
+            this.comboBoxAddSuppliersProducts_Products.Name = "comboBoxAddSuppliersProducts_Products";
+            this.comboBoxAddSuppliersProducts_Products.Size = new System.Drawing.Size(256, 21);
+            this.comboBoxAddSuppliersProducts_Products.TabIndex = 3;
+            this.comboBoxAddSuppliersProducts_Products.ValueMember = "Id";
             // 
-            // comboBoxEditSuppliersProducts_Suppliers
+            // addSupplierProductBindingSource_Product
             // 
-            this.comboBoxEditSuppliersProducts_Suppliers.DataSource = this.suppliersProductsBindingSource_Grid;
-            this.comboBoxEditSuppliersProducts_Suppliers.DisplayMember = "SupplierName";
-            this.comboBoxEditSuppliersProducts_Suppliers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxEditSuppliersProducts_Suppliers.FormattingEnabled = true;
-            this.comboBoxEditSuppliersProducts_Suppliers.Location = new System.Drawing.Point(64, 29);
-            this.comboBoxEditSuppliersProducts_Suppliers.Name = "comboBoxEditSuppliersProducts_Suppliers";
-            this.comboBoxEditSuppliersProducts_Suppliers.Size = new System.Drawing.Size(256, 21);
-            this.comboBoxEditSuppliersProducts_Suppliers.TabIndex = 7;
-            this.comboBoxEditSuppliersProducts_Suppliers.ValueMember = "SupplierId";
+            this.addSupplierProductBindingSource_Product.DataSource = typeof(QuanLySieuThi_Version2.Models.Product);
             // 
-            // label4
+            // comboBoxAddSuppliersProducts_Supplier
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 69);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Product:";
+            this.comboBoxAddSuppliersProducts_Supplier.DataSource = this.addSupplierProductBindingSource_Supplier;
+            this.comboBoxAddSuppliersProducts_Supplier.DisplayMember = "Name";
+            this.comboBoxAddSuppliersProducts_Supplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxAddSuppliersProducts_Supplier.FormattingEnabled = true;
+            this.comboBoxAddSuppliersProducts_Supplier.Location = new System.Drawing.Point(64, 23);
+            this.comboBoxAddSuppliersProducts_Supplier.Name = "comboBoxAddSuppliersProducts_Supplier";
+            this.comboBoxAddSuppliersProducts_Supplier.Size = new System.Drawing.Size(256, 21);
+            this.comboBoxAddSuppliersProducts_Supplier.TabIndex = 2;
+            this.comboBoxAddSuppliersProducts_Supplier.ValueMember = "Id";
             // 
-            // label5
+            // addSupplierProductBindingSource_Supplier
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 33);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 13);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Supplier:";
+            this.addSupplierProductBindingSource_Supplier.DataSource = typeof(QuanLySieuThi_Version2.Models.Supplier);
             // 
-            // button3
+            // label3
             // 
-            this.button3.BackColor = System.Drawing.Color.DarkRed;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button3.ForeColor = System.Drawing.SystemColors.Info;
-            this.button3.Location = new System.Drawing.Point(254, 92);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "REMOVE";
-            this.button3.UseVisualStyleBackColor = false;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(11, 62);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(47, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Product:";
             // 
-            // addSuppliersProductsBindingSource_Products
+            // label2
             // 
-            this.addSuppliersProductsBindingSource_Products.DataSource = typeof(QuanLySieuThi_Version2.Models.Product);
-            // 
-            // addSuppliersProductsBindingSource_Suppliers
-            // 
-            this.addSuppliersProductsBindingSource_Suppliers.DataSource = typeof(QuanLySieuThi_Version2.Models.Supplier);
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.button4);
-            this.groupBox6.Controls.Add(this.comboBox6);
-            this.groupBox6.Controls.Add(this.comboBox5);
-            this.groupBox6.Location = new System.Drawing.Point(12, 278);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(335, 54);
-            this.groupBox6.TabIndex = 12;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Search";
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(10, 19);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(157, 21);
-            this.comboBox5.TabIndex = 12;
-            this.comboBox5.ValueMember = "ProductId";
-            // 
-            // comboBox6
-            // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(173, 19);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(81, 21);
-            this.comboBox6.TabIndex = 13;
-            this.comboBox6.ValueMember = "ProductId";
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(260, 19);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(69, 23);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Add";
-            this.button4.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(10, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Supplier:";
             // 
             // SupplierForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1090, 706);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1242, 709);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Name = "SupplierForm";
             this.Text = "SupplierForm";
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.supplierDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
             this.groupBoxSupplierActions.ResumeLayout(false);
             this.groupBoxSupplierActions.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.suppliersProductsDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.suppliersProductsBindingSource_Grid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.supplierDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierProductDTOBindingSource)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.addSuppliersProductsBindingSource_Products)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addSuppliersProductsBindingSource_Suppliers)).EndInit();
-            this.groupBox6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.removeSupplierProductsBindingSource_Product)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.removeSupplierProductBindingSource_Supplier)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.addSupplierProductBindingSource_Product)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addSupplierProductBindingSource_Supplier)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.BindingSource suppliersProductsBindingSource_Grid;
         private System.Windows.Forms.BindingSource supplierBindingSource;
         private System.Windows.Forms.GroupBox groupBox1;
         private Infrastructures.CustomDataGridView supplierDataGridView;
         private System.Windows.Forms.GroupBox groupBoxSupplierActions;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.GroupBox groupBox4;
         private Infrastructures.CustomDataGridView suppliersProductsDataGridView;
         private System.Windows.Forms.Button btnAddSupplier;
@@ -659,22 +698,29 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnREMOVESupplierProduct;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnAddSuppliersProducts;
+        private System.Windows.Forms.ComboBox comboBoxAddSuppliersProducts_Products;
+        private System.Windows.Forms.ComboBox comboBoxAddSuppliersProducts_Supplier;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Button btnSearchSupplierProduct;
+        private System.Windows.Forms.ComboBox comboBoxSupplierProductSearchOptions;
         private System.Windows.Forms.ComboBox comboBoxEditSuppliersProducts_Products;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBoxEditSuppliersProducts_Suppliers;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnAddSuppliersProducts;
-        private System.Windows.Forms.ComboBox comboBoxAddSuppliersProducts_Products;
-        private System.Windows.Forms.BindingSource addSuppliersProductsBindingSource_Products;
-        private System.Windows.Forms.ComboBox comboBoxAddSuppliersProducts_Supplier;
-        private System.Windows.Forms.BindingSource addSuppliersProductsBindingSource_Suppliers;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.BindingSource supplierProductDTOBindingSource;
+        private System.Windows.Forms.BindingSource addSupplierProductBindingSource_Supplier;
+        private System.Windows.Forms.BindingSource addSupplierProductBindingSource_Product;
+        private System.Windows.Forms.BindingSource removeSupplierProductsBindingSource_Product;
+        private System.Windows.Forms.BindingSource removeSupplierProductBindingSource_Supplier;
+        private System.Windows.Forms.DataGridViewTextBoxColumn supplierNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn IsSupplyimg;
+        private System.Windows.Forms.Button btnStopSupplying;
+        private System.Windows.Forms.TextBox txtSearchSupplierProductValue;
     }
 }
