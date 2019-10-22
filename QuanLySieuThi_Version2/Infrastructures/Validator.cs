@@ -30,7 +30,6 @@ namespace QuanLySieuThi_Version2.Infrastructures
                                     , MessageBoxIcon.Error);
             GetErrorControl(type.Name, ModelState.ErrorPropertyName).Focus();
         }
-
         public static bool IsPhoneNumber(string input)
         {
             if (String.IsNullOrEmpty(input))

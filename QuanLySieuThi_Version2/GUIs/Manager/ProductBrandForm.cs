@@ -28,7 +28,7 @@ namespace QuanLySieuThi_Version2.GUIs.Manager
         private void CreateSearchOptionsComboBox()
         {
             comboBoxSearchOptions.DisplayMember = "Text";
-            comboBoxSearchOptions.DisplayMember = "Value";
+            comboBoxSearchOptions.ValueMember = "Value";
             comboBoxSearchOptions.Items.Add(new { Text = "ID", Value = "ID" });
             comboBoxSearchOptions.Items.Add(new { Text = "Name", Value = "Name" });
             comboBoxSearchOptions.SelectedIndex = 0;
@@ -85,8 +85,8 @@ namespace QuanLySieuThi_Version2.GUIs.Manager
         }
         protected override void OnClosing(CancelEventArgs e)
         {
-            base.OnClosing(e);
             productBrandBUS.Dispose();
+            base.OnClosing(e);
         }
         #endregion
 

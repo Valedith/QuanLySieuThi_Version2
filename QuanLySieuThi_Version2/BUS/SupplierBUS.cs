@@ -20,7 +20,7 @@ namespace QuanLySieuThi_Version2.BUS
             db = new ApplicationDbContext();
             db.Suppliers.Load();
             db.Products.Load();
-            db.SupplierProducts.Load();
+            db.SuppliersProducts.Load();
         }
         #region Supplier's methods
         public BindingList<Supplier> GetAllSuppliersBindingList()
@@ -192,7 +192,7 @@ namespace QuanLySieuThi_Version2.BUS
             try
             {
                 List<SupplierProductDTO> suppliersProducts = new List<SupplierProductDTO>();
-                foreach (var supplierProduct in db.SupplierProducts
+                foreach (var supplierProduct in db.SuppliersProducts
                             .Where(sp => sp.Supplier.IsActive == true&& sp.Product.IsActive == true).ToList())
                 {
                     if(suppliersProducts.FirstOrDefault(sp => sp.SupplierId == supplierProduct.SupplierId) == null)
@@ -219,7 +219,7 @@ namespace QuanLySieuThi_Version2.BUS
             try
             {
                 BindingList<SupplierProductDTO> suppliersProducts = new BindingList<SupplierProductDTO>();
-                foreach (var supplierProduct in db.SupplierProducts.Where(sp => sp.Supplier.IsActive == true))
+                foreach (var supplierProduct in db.SuppliersProducts.Where(sp => sp.Supplier.IsActive == true))
                 {
                     suppliersProducts.Add(new SupplierProductDTO()
                     {
@@ -264,7 +264,7 @@ namespace QuanLySieuThi_Version2.BUS
             try
             {
                 List<SupplierProductDTO> supplierProductDTOs = new List<SupplierProductDTO>();
-                Supplier supplier = db.Suppliers.Find(supplierId);
+                Supplier supplier = db.Suppliers.Include(s => s.SupplierProducts).FirstOrDefault(s => s.Id == supplierId);
                 if(supplier != null)
                 {
                     foreach (var supplierProduct in supplier.SupplierProducts.Where(sp => sp.Product.IsActive == true))
@@ -324,7 +324,7 @@ namespace QuanLySieuThi_Version2.BUS
             try
             {
                 List<SupplierProductDTO> supplierProductDTOs = new List<SupplierProductDTO>();
-                Product product = db.Products.Find(productId);
+                Product product = db.Products.Include(p => p.SupplierProducts).FirstOrDefault(p => p.Id == productId);
                 if (product != null)
                 {
                     foreach (var supplierProduct in product.SupplierProducts.Where(sp => sp.Supplier.IsActive == true))
@@ -402,7 +402,7 @@ namespace QuanLySieuThi_Version2.BUS
                 {
                     return new CustomResult(CustomResultType.NotExisted, "This Product is being locked");
                 }
-                if (db.SupplierProducts.FirstOrDefault(sp => sp.ProductId == productID && sp.SupplierId == supplier.Id) != null)
+                if (db.SuppliersProducts.FirstOrDefault(sp => sp.ProductId == productID && sp.SupplierId == supplier.Id) != null)
                 {
                     return new CustomResult(CustomResultType.Existed, "This Product has already been supplied by this supplier");
                 }
@@ -413,7 +413,7 @@ namespace QuanLySieuThi_Version2.BUS
                     IsSupplying = true
                 };
 
-                db.SupplierProducts.Add(supplierProduct);
+                db.SuppliersProducts.Add(supplierProduct);
                 db.SaveChanges();
                 return new CustomResult(CustomResultType.Succeed);
             }
@@ -428,7 +428,7 @@ namespace QuanLySieuThi_Version2.BUS
         {
             try
             {
-                SupplierProduct foundSupplierProduct = db.SupplierProducts
+                SupplierProduct foundSupplierProduct = db.SuppliersProducts
                                                         .FirstOrDefault(sp => sp.ProductId == productId
                                                           && sp.SupplierId == supplierProduct);
                 if (foundSupplierProduct == null)
@@ -451,7 +451,7 @@ namespace QuanLySieuThi_Version2.BUS
         {
             try
             {
-                SupplierProduct foundSupplierProduct = db.SupplierProducts
+                SupplierProduct foundSupplierProduct = db.SuppliersProducts
                                                         .FirstOrDefault(sp => sp.ProductId == productId
                                                           && sp.SupplierId == supplierProduct);
                 if (foundSupplierProduct == null)

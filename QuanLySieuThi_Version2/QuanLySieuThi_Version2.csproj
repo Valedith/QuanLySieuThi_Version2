@@ -36,6 +36,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=9.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.9.0.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -57,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUS\ProductBrandBUS.cs" />
+    <Compile Include="BUS\ProductTypeBUS.cs" />
     <Compile Include="BUS\SupplierBUS.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -70,6 +74,12 @@
     <Compile Include="GUIs\Manager\ProductBrandForm.Designer.cs">
       <DependentUpon>ProductBrandForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUIs\Manager\ProductTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIs\Manager\ProductTypeForm.Designer.cs">
+      <DependentUpon>ProductTypeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUIs\Manager\SupplierForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,19 +90,30 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Infrastructures\CustomResult.cs" />
+    <Compile Include="Infrastructures\IDisposeDbContext.cs" />
     <Compile Include="Infrastructures\ModelState.cs" />
     <Compile Include="Infrastructures\Validator.cs" />
     <Compile Include="Infrastructures\ObservableListSource .cs" />
-    <Compile Include="Migrations\201910201510347_Init.cs" />
-    <Compile Include="Migrations\201910201510347_Init.designer.cs">
-      <DependentUpon>201910201510347_Init.cs</DependentUpon>
+    <Compile Include="Migrations\201910211050446_init.cs" />
+    <Compile Include="Migrations\201910211050446_init.designer.cs">
+      <DependentUpon>201910211050446_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910211417257_DeleteProduct-ProductTypeRelaptionship.cs" />
+    <Compile Include="Migrations\201910211417257_DeleteProduct-ProductTypeRelaptionship.designer.cs">
+      <DependentUpon>201910211417257_DeleteProduct-ProductTypeRelaptionship.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910211418328_ReCreateProduct-ProductTypeRelationship.cs" />
+    <Compile Include="Migrations\201910211418328_ReCreateProduct-ProductTypeRelationship.designer.cs">
+      <DependentUpon>201910211418328_ReCreateProduct-ProductTypeRelationship.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\DTOs\ProductTypeProductDTO.cs" />
     <Compile Include="Models\DTOs\SupplierProductDTO.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductBrand.cs" />
     <Compile Include="Models\ProductType.cs" />
+    <Compile Include="Models\ProductTypeProduct.cs" />
     <Compile Include="Models\Promotion.cs" />
     <Compile Include="Models\Supplier.cs" />
     <Compile Include="Models\SupplierProduct.cs" />
@@ -104,11 +125,20 @@
     <EmbeddedResource Include="GUIs\Manager\ProductBrandForm.resx">
       <DependentUpon>ProductBrandForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUIs\Manager\ProductTypeForm.resx">
+      <DependentUpon>ProductTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUIs\Manager\SupplierForm.resx">
       <DependentUpon>SupplierForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910201510347_Init.resx">
-      <DependentUpon>201910201510347_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201910211050446_init.resx">
+      <DependentUpon>201910211050446_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910211417257_DeleteProduct-ProductTypeRelaptionship.resx">
+      <DependentUpon>201910211417257_DeleteProduct-ProductTypeRelaptionship.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910211418328_ReCreateProduct-ProductTypeRelationship.resx">
+      <DependentUpon>201910211418328_ReCreateProduct-ProductTypeRelationship.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -120,10 +150,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\QuanLySieuThi_Version2.Models.DTOs.ProductTypeProductDTO.datasource" />
     <None Include="Properties\DataSources\QuanLySieuThi_Version2.Models.DTOs.SupplierProductDTO.datasource" />
     <None Include="Properties\DataSources\QuanLySieuThi_Version2.Models.Product.datasource" />
     <None Include="Properties\DataSources\QuanLySieuThi_Version2.Models.ProductBrand.datasource" />
     <None Include="Properties\DataSources\QuanLySieuThi_Version2.Models.ProductType.datasource" />
+    <None Include="Properties\DataSources\QuanLySieuThi_Version2.Models.ProductTypeProduct.datasource" />
     <None Include="Properties\DataSources\QuanLySieuThi_Version2.Models.Promotion.datasource" />
     <None Include="Properties\DataSources\QuanLySieuThi_Version2.Models.Supplier.datasource" />
     <None Include="Properties\DataSources\QuanLySieuThi_Version2.Models.SupplierProduct.datasource" />

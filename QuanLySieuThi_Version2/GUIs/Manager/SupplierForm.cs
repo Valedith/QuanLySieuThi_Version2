@@ -58,8 +58,8 @@ namespace QuanLySieuThi_Version2.GUIs.Manager
         }
         protected override void OnClosing(CancelEventArgs e)
         {
-            base.OnClosing(e);
             bus.Dispose();
+            base.OnClosing(e);
         }
         #endregion
 

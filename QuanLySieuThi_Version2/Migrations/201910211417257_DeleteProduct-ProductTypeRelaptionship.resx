@@ -117,58 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="addressLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="isActiveLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="nameLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="phoneNumberLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="label1.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="supplierBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>20, 17</value>
-  </metadata>
-  <metadata name="supplierBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>20, 17</value>
-  </metadata>
-  <metadata name="IsSupplying.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="supplierProductDTOBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>30, 54</value>
-  </metadata>
-  <metadata name="removeSupplierProductsBindingSource_Product.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>554, 51</value>
-  </metadata>
-  <metadata name="removeSupplierProductsBindingSource_Product.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>554, 51</value>
-  </metadata>
-  <metadata name="removeSupplierProductBindingSource_Supplier.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>537, 15</value>
-  </metadata>
-  <metadata name="removeSupplierProductBindingSource_Supplier.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>537, 15</value>
-  </metadata>
-  <metadata name="addSupplierProductBindingSource_Product.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>267, 52</value>
-  </metadata>
-  <metadata name="addSupplierProductBindingSource_Product.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>267, 52</value>
-  </metadata>
-  <metadata name="addSupplierProductBindingSource_Supplier.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>225, 18</value>
-  </metadata>
-  <metadata name="addSupplierProductBindingSource_Supplier.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>225, 18</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>81</value>
-  </metadata>
+  <data name="Target" xml:space="preserve">
+    <value>H4sIAAAAAAAEAO1c227cNhB9L9B/EPTUFo5lOy2QGrsJnHVcLBpf6rWDvhlcibsmSlGqSBm7KPplfegn9RdK6i5edNmLd20EAQKbIofD4ZnhDHmS//75d/Bh4WPrCUYUBWRoHx8e2RYkbuAhMh/aMZu9eWd/eP/tN4NPnr+wvuT93op+fCShQ/uRsfDUcaj7CH1AD33kRgENZuzQDXwHeIFzcnT0s3N87EAuwuayLGtwGxOGfJj8wn8dBcSFIYsBvgw8iGnWzr9MEqnWFfAhDYELh/ZvMSCflxME47tH9JBpdHKYDrStM4wAV2oC8cy2ACEBA4x3OL2ncMKigMwnIW8A+G4ZQt5vBjCF2VJOy+5dV3V0IlbllANzUW5MWeD3FHj8NjOTIw9fydh2YUZuyE/c4GwpVp0Yc2jfRIEXu+xjBIhnW/KEpyMcic4t9j6sSjmw9H0PCtxweIk/B9YoxiyO4JDAmEUAH1g38RQj91e4vAv+gGRIYoyr6vMF8G+1Bt7EJw9hxJa3cJYtasyX4tTHOfLAYlhlTLrUMWFvT2zrik8OphgW6KiYZcKCCP4CCYwAg94NYAxGRMiAiX2V2aW5xN/5bByO3Mls6xIsPkMyZ4/c/Y64W12gBfTylkyDe4K4T/JBLIqhRsPmWcf0zGXoqZj5YxBgCEi7nCvwhObJwiWJ2bZzf7uFOOlAH1GYul2OiYc6wi6iwL8NcDm49v3hDkRzyLiGQUOnSRBHrqTmwCmh3QXwa2P9K8zXhfnJdmAutiXVrnmdzVJuIuQWyp9DF/kA29ZNxH/Kzsh3tjVxgRDYX/o5ZADhBtv8+FM322zJ4/V+nnhfO4B6Ro8sMGwqguTBoTGC5GGmq6qTOAwxglFjwJM6PRSRptTY0EUJe6Z+a0U+SejqEVAStAeRUNJolcCoEfFccTKfurdr6R1qXTFjmii0TGLShlOFTTuO7O1tDtbX4Rv1fVDDgqqx0sno7GrPjbj7+n6+Bw7+wlOdLWX0Z54XQUqfP8e6eQwIvIr9qYCXcXL+4y6TmM2c5is6uSkwmcPBOtWMaFm7ohFdv7r6nrr6al5gwtEZpYGLEnPUgVTPtesafSKe1SXxTi1TSeC5fThWEIe9y3UZ2j8oi20RXZyYiuisJqjLP7ZllF2Tc4ghg5YwoqjeRoC6wFOtzu3l1Vs4MGEkkAHwiAcIDnVEmIpiRFwUAtxhFdLYjj4gdCtmkb+cwxASAd8O+9NlerneU1UpZpTM12atgVOBXjMiTVmhCTmtKWIJHqUS6o7P1gquFf27R2fLGp4BoC171QOjO4enmh+0QachWVAhulX0dNFNA+ze7rMWSo3mekacGs3SRYdqef8MUE1PfD6G8REwyksFoYObdD6fio9wobsBuqcwSxpplqjIiBHCJ5BpTgqeGZfZhvaYVqKqVliDnFYRua1pgywFvl1lNsjqurbEsub1pXm8JKqyz4o86W600rXpDlUGYcfMrlhTdasURHfM5VRhOYjksFVffwfbGO+TVPN0SjJ6pRmVdWnA2GCttsyig/XXsJWmzDVbq+XM63nq6SzWyVLmw6rPJjQYLS+fimBaMhKclJKQUxccA3dhcAnCkJeIFS5D1mJNUiLD6M2k/7O+n8pwXKp53S+0LWbiBS+YQ+krn5preoEiys4BA1MgiseR5yvdtEeHIdrlU+pOB3VD8yCYjxI/l4943egGmiM4E3fBF+2Lszwp+A3xRh2e0E0ABpHmjmEU4Ngn5tTCPDq9NaiOT1u6SyhvAGpaFK2qpIEjWUJJPpQtUDLG+r722fUtbPjqe/1ytrl8vq5KKVu7S8qesKtisqbuMvKH6qqQvG2b0DWvqX4zUV9c863FzhxCPYI25xlyMtvfQ1olmPZC82Ja3Y7WN9kusk1C+0kzaLiSZrXX0TqcKx/2D3tbwNwaYHs58bh4Y6sKKRp7YLD6ZFZDYfXD600H0sp34ylBUjGvnBboR+8rFPdsy5XqSO5SzF5USVI1NMgqk3a6t1KqpF0EIy94Qp4oUyZLyqB/KDocTv7EIx5mCCs7XAKCZpCy9HHSPjk6PpFo4vtD2XYo9bCmsjPxtut79gyvrEhYtvUdtecTZ/VhlTyByH0EOvLKmHhwMbT/ssb0nqA/Y3hq3UUxtP5Wn2HXfGOdIrbi+6qRdfyad0qmnazJ2000X4e1622XtatdeMLbLcWuwm9pR51u3TqCbmJBs/+IoafW+PeH+ugD6zri8fLUOhIutRn4N9YYu6d4bsVJVFZn1/0oR/bYCyMoVsbDmtNraKQbDKj6QuL1RtRVzjOJHrixSK1h/+Wyv/PB4vvtR8CV+HGvGSkvMkvaDAste/rcBTdM0WU19ts6FDPTG8jGqRDmC0Z1qrab2L3kj/XYwi2TcHSaPA/nps8mb5YC9so5X/vA7dodrBoujPcCV3vB0FJf4w3Xq9p/PtnCvEqvy3hNPA34/qcndTPtxjBdEzerYZJ2+QoS23lbuvlUGkvHeRvJXU0zdTZdSu5qpn41mDCjju2eHFZDnEqo6MAI0w3ed95XD9Wbo2/D0+sLonNp17EDQ/SgaKmPDTyGV/4HGn6UUDQvRYj/j4ZAtxa9iz5jMgvyg0TSKO8i1U2XkAGPh/aziKEZcBn/7PLqPLke+QJwzLt84iW1NybXMQtjxpcM/SmuUT7EYdQ0f8JDq+s8uA6Tf9m2iSVwNRFfArwmH2OEvULvC03NZxAhTrmsGhZ7yURVPF8Wkq4C0lFQZr7icL6Dfoi5MHpNJkBUp/11u6fwM5wDd5m/GZmFtG9E3eyDcwTmEfBpJqMcz3/lGPb8xfv/AT8N29uISQAA</value>
+  </data>
+  <data name="DefaultSchema" xml:space="preserve">
+    <value>dbo</value>
+  </data>
 </root>

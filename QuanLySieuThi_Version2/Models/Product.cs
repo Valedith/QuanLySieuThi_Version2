@@ -31,7 +31,7 @@ namespace QuanLySieuThi_Version2.Models
 
         public virtual ICollection<SupplierProduct> SupplierProducts { get; set; }
 
-        public virtual ICollection<Promotion> Promotions { get; set; }
+        //public virtual ICollection<Promotion> Promotions { get; set; }
         #endregion
     }
 }

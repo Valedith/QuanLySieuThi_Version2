@@ -56,9 +56,6 @@
             this.txtSupplierName = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.suppliersProductsDataGridView = new QuanLySieuThi_Version2.Infrastructures.CustomDataGridView();
-            this.supplierNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsSupplyimg = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.supplierProductDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -82,6 +79,9 @@
             this.addSupplierProductBindingSource_Supplier = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.supplierNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsSupplying = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             addressLabel = new System.Windows.Forms.Label();
             isActiveLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
@@ -387,7 +387,7 @@
             this.suppliersProductsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.supplierNameDataGridViewTextBoxColumn,
             this.productNameDataGridViewTextBoxColumn,
-            this.IsSupplyimg});
+            this.IsSupplying});
             this.suppliersProductsDataGridView.DataSource = this.supplierProductDTOBindingSource;
             this.suppliersProductsDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.suppliersProductsDataGridView.Location = new System.Drawing.Point(382, 19);
@@ -395,29 +395,6 @@
             this.suppliersProductsDataGridView.ReadOnly = true;
             this.suppliersProductsDataGridView.Size = new System.Drawing.Size(830, 340);
             this.suppliersProductsDataGridView.TabIndex = 1;
-            // 
-            // supplierNameDataGridViewTextBoxColumn
-            // 
-            this.supplierNameDataGridViewTextBoxColumn.DataPropertyName = "SupplierName";
-            this.supplierNameDataGridViewTextBoxColumn.HeaderText = "SupplierName";
-            this.supplierNameDataGridViewTextBoxColumn.Name = "supplierNameDataGridViewTextBoxColumn";
-            this.supplierNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // productNameDataGridViewTextBoxColumn
-            // 
-            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
-            this.productNameDataGridViewTextBoxColumn.HeaderText = "ProductName";
-            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
-            this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // IsSupplyimg
-            // 
-            this.IsSupplyimg.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.IsSupplyimg.DataPropertyName = "IsSupplyimg";
-            this.IsSupplyimg.HeaderText = "IsSupplyimg";
-            this.IsSupplyimg.Name = "IsSupplyimg";
-            this.IsSupplyimg.ReadOnly = true;
-            this.IsSupplyimg.Width = 69;
             // 
             // supplierProductDTOBindingSource
             // 
@@ -640,6 +617,29 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Supplier:";
             // 
+            // supplierNameDataGridViewTextBoxColumn
+            // 
+            this.supplierNameDataGridViewTextBoxColumn.DataPropertyName = "SupplierName";
+            this.supplierNameDataGridViewTextBoxColumn.HeaderText = "SupplierName";
+            this.supplierNameDataGridViewTextBoxColumn.Name = "supplierNameDataGridViewTextBoxColumn";
+            this.supplierNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // productNameDataGridViewTextBoxColumn
+            // 
+            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
+            this.productNameDataGridViewTextBoxColumn.HeaderText = "ProductName";
+            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
+            this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // IsSupplying
+            // 
+            this.IsSupplying.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.IsSupplying.DataPropertyName = "IsSupplying";
+            this.IsSupplying.HeaderText = "IsSupplying";
+            this.IsSupplying.Name = "IsSupplying";
+            this.IsSupplying.ReadOnly = true;
+            this.IsSupplying.Width = 67;
+            // 
             // SupplierForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -717,10 +717,10 @@
         private System.Windows.Forms.BindingSource addSupplierProductBindingSource_Product;
         private System.Windows.Forms.BindingSource removeSupplierProductsBindingSource_Product;
         private System.Windows.Forms.BindingSource removeSupplierProductBindingSource_Supplier;
-        private System.Windows.Forms.DataGridViewTextBoxColumn supplierNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn IsSupplyimg;
         private System.Windows.Forms.Button btnStopSupplying;
         private System.Windows.Forms.TextBox txtSearchSupplierProductValue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn supplierNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn IsSupplying;
     }
 }
