@@ -27,11 +27,11 @@ namespace QuanLySieuThi_Version2.Models
         public int ProductBrandId { get; set; }
         public virtual ProductBrand ProductBrand { get; set; }
 
-        public virtual ICollection<ProductType> ProductTypes { get; set; }
+        public virtual ObservableListSource<ProductType> ProductTypes { get; set; }
 
         public virtual ICollection<SupplierProduct> SupplierProducts { get; set; }
 
-        //public virtual ICollection<Promotion> Promotions { get; set; }
+        public virtual ObservableListSource<Promotion> Promotions { get; set; }
         #endregion
     }
 }

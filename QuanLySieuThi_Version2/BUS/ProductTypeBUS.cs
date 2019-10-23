@@ -19,7 +19,7 @@ namespace QuanLySieuThi_Version2.BUS
         {
             db = new ApplicationDbContext();
             db.ProductTypes.Include(p => p.Products).Load();
-            db.Products.Include(p => p.ProductBrand).Load();
+            db.Products.Include(p=>p.ProductTypes).Load();
         }
 
         public BindingList<ProductType> GetAllProductTypes()
@@ -131,6 +131,34 @@ namespace QuanLySieuThi_Version2.BUS
                     return new CustomResult(CustomResultType.Existed, "This record exists");
                 }
                 productType.Products.Add(db.Products.Find(productId));
+                db.Set<ProductType>().AddOrUpdate(productType);
+                db.SaveChanges();
+                return new CustomResult(CustomResultType.Succeed);
+            }
+            catch (Exception ex)
+            {
+                return new CustomResult(CustomResultType.UnexpectedError, "Some unexpected error has occured\n" + ex.Message);
+            }
+        }
+
+        public CustomResult RemoveProductTypeProduct(int productTypeId, int productId)
+        {
+            try
+            {
+                if (db.ProductTypes.FirstOrDefault(pt => pt.Id == productTypeId) == null)
+                {
+                    return new CustomResult(CustomResultType.NotExisted, "This Product Type does not exist");
+                }
+                if (db.Products.FirstOrDefault(p => p.Id == productId) == null)
+                {
+                    return new CustomResult(CustomResultType.NotExisted, "This Product does not exist");
+                }
+                ProductType productType = db.ProductTypes.Include(pt => pt.Products).FirstOrDefault(pt => pt.Id == productTypeId);
+                if (productType.Products.FirstOrDefault(p => p.Id == productId) == null)
+                {
+                    return new CustomResult(CustomResultType.NotExisted, "This record does not exists");
+                }
+                productType.Products.Remove(db.Products.Find(productId));
                 db.Set<ProductType>().AddOrUpdate(productType);
                 db.SaveChanges();
                 return new CustomResult(CustomResultType.Succeed);

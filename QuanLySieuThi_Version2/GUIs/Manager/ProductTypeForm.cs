@@ -32,14 +32,17 @@ namespace QuanLySieuThi_Version2.GUIs.Manager
             base.OnLoad(e);
             try
             {
-                productTypeBindingSource.DataSource = bus.GetAllProductTypes();
-                productTypeBindingSource_AddProducts.DataSource = bus.GetAllProductTypes();
+                BindingList<ProductType> productTypes = bus.GetAllProductTypes();
+                productTypeBindingSource.DataSource = productTypes;
+                productTypeBindingSource_Add.DataSource = productTypes;
+
                 productBindingSource_Add.DataSource = bus.GetAllProducts();
             }
             catch(Exception ex)
             {
                 ShowErrorMessagerBox(ex.Message);
             }
+            ActiveControl = txtSearchProductTypeValue;
         }
         protected override void OnClosing(CancelEventArgs e)
         {
@@ -219,22 +222,32 @@ namespace QuanLySieuThi_Version2.GUIs.Manager
             {
                 if(!GetConfirmation("Are you sre to add this record?", "Confirm Add")) { return; }
                 int productTypeId, productId;
-                if (Int32.TryParse(comboBoxAddProduct.SelectedValue.ToString(), out productId)
-                    && Int32.TryParse(comboBoxAddProductType.SelectedValue.ToString(), out productTypeId))
+                if(comboBoxAddProductTypeProduct_Product.SelectedValue == null 
+                    || comboBoxAddProductTypeProduct_ProductType.SelectedValue == null)
+                {
+                    ShowErrorMessagerBox("Couldn't get values");
+                    return;
+                }
+                
+                if (Int32.TryParse(comboBoxAddProductTypeProduct_Product.SelectedValue.ToString(), out productId)
+                    && Int32.TryParse(comboBoxAddProductTypeProduct_ProductType.SelectedValue.ToString(), out productTypeId))
                 {
                     CustomResult customResult = bus.AddProductTypeProduct(productTypeId, productId);
                     if(customResult.Result == CustomResultType.Succeed)
                     {
                         MessageBox.Show("Record added", "Add Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        productTypeProductsDataGridView.Refresh();
                     }
                     else
                     {
-                        throw new Exception(customResult.ErrorMessage);
+                        ShowErrorMessagerBox(customResult.ErrorMessage);
+                        return;
                     }
                 }
                 else
                 {
-                    throw new Exception("Couldn't get Product or Prouct Type");
+                    ShowErrorMessagerBox("Couldn't get values");
+                    return;
                 }
             }
             catch(Exception ex)
@@ -242,8 +255,50 @@ namespace QuanLySieuThi_Version2.GUIs.Manager
                 ShowErrorMessagerBox(ex.Message);
             }
         }
+        private void btnRemoveProductTypeProduct_Click(object sender, EventArgs e)
+        {
+            if(!GetConfirmation("Are you sure to delete this Product from Product Type?","Confirm Delete")) { return; }
+            if (!GetConfirmation("Are you sure to delete this record?", "Confirm Delete")) { return; }
+            try
+            {
+                int productId, productTypeId;
+                if (comboBoxRemoveProductTypeProduct_Products.SelectedValue == null
+                    || comboBoxRemoveProductTypeProduct_ProductType.SelectedValue == null)
+                {
+                    ShowErrorMessagerBox("Couldn't get values");
+                    return;
+                }
+                if (Int32.TryParse(comboBoxRemoveProductTypeProduct_ProductType.SelectedValue.ToString(), out productTypeId)
+                    &&Int32.TryParse(comboBoxRemoveProductTypeProduct_Products.SelectedValue.ToString(), out productId))
+                {
+                    CustomResult customResult = bus.RemoveProductTypeProduct(productTypeId, productId);
+                    if (customResult.Result == CustomResultType.Succeed)
+                    {
+                        MessageBox.Show("Record removed", "Remove Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        ShowErrorMessagerBox(customResult.ErrorMessage);
+                        return;
+                    }
+                }
+                else
+                {
+                    ShowErrorMessagerBox("Couldn't get values");
+                    return;
+                }
+            }
+            catch(Exception ex)
+            {
+                ShowErrorMessagerBox(ex.Message);
+            }
+            
+        }
         #endregion
+
         #endregion
+
+
 
 
     }
