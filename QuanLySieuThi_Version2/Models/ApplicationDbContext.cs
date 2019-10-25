@@ -9,8 +9,8 @@ namespace QuanLySieuThi_Version2.Models
         public DbSet<ProductBrand> ProductBrands { get; set; }
         public DbSet<Promotion> Promotions { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
-        public DbSet<SupplierProduct> SuppliersProducts { get; set; }
+
         public DbSet<Customer> Customers { get; set; }
-        public DbSet<Salary> Salaries { get; set; }
+        //public DbSet<Salary> Salaries { get; set; }
     }
 }

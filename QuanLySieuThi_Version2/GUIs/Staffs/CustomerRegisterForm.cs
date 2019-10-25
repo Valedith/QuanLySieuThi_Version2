@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace QuanLySieuThi_Version2.GUIs.Staffs
 {
-    public partial class CustomerRegister : Form
+    public partial class CustomerRegisterForm : Form
     {
-        public CustomerRegister()
+        public CustomerRegisterForm()
         {
             InitializeComponent();
+        }
+
+        private void radioGroup1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

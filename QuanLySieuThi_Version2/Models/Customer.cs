@@ -18,9 +18,9 @@ namespace QuanLySieuThi_Version2.Models
         public DateTime BirthDate { get; set; }
 
         [Required]
-        [StringLength(100)]
+        [StringLength(9, ErrorMessage = "Identity can't have more than 9 characters")]
         [Index(IsUnique = true)]
-        public string Name1 { get; set; }
+        public string IdentityNumber { get; set; }
 
         [Phone]
         [Required]
@@ -31,9 +31,6 @@ namespace QuanLySieuThi_Version2.Models
 
         [Required]
         public string Address { get; set; }
-
         
-
-
     }
 }

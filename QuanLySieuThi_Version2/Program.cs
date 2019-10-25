@@ -1,4 +1,5 @@
 ﻿using QuanLySieuThi_Version2.GUIs.Manager;
+using QuanLySieuThi_Version2.GUIs.Staffs;
 using System;
 using System.Windows.Forms;
 
@@ -15,7 +16,7 @@ namespace QuanLySieuThi_Version2
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             
-            Application.Run(new ProductTypeForm());
+            Application.Run(new MainForm());
             
         }
     }

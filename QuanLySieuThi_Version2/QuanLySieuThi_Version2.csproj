@@ -39,6 +39,20 @@
     <Reference Include="AutoMapper, Version=9.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.9.0.0\lib\net461\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.Data.v19.1, Version=19.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.ExpressApp.v19.1, Version=19.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Images.v19.1, Version=19.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Mvvm.v19.1, Version=19.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Persistent.Base.v19.1, Version=19.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v19.1.Core, Version=19.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v19.1, Version=19.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v19.1, Version=19.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v19.1, Version=19.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v19.1, Version=19.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v19.1, Version=19.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v19.1, Version=19.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v19.1, Version=19.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v19.1, Version=19.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -59,7 +73,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\BaseBUS.cs" />
     <Compile Include="BUS\ProductBrandBUS.cs" />
+    <Compile Include="BUS\ProductBUS.cs" />
     <Compile Include="BUS\ProductTypeBUS.cs" />
     <Compile Include="BUS\SupplierBUS.cs" />
     <Compile Include="Form1.cs">
@@ -73,6 +89,12 @@
     </Compile>
     <Compile Include="GUIs\Manager\ProductBrandForm.Designer.cs">
       <DependentUpon>ProductBrandForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIs\Manager\ProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIs\Manager\ProductForm.Designer.cs">
+      <DependentUpon>ProductForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUIs\Manager\ProductTypeForm.cs">
       <SubType>Form</SubType>
@@ -92,11 +114,17 @@
     <Compile Include="GUIs\Manager\SupplierForm.Designer.cs">
       <DependentUpon>SupplierForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUIs\Staffs\CustomerRegister.cs">
+    <Compile Include="GUIs\Manager\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUIs\Staffs\CustomerRegister.Designer.cs">
-      <DependentUpon>CustomerRegister.cs</DependentUpon>
+    <Compile Include="GUIs\Manager\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIs\Staffs\CustomerRegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIs\Staffs\CustomerRegisterForm.Designer.cs">
+      <DependentUpon>CustomerRegisterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Infrastructures\CustomDataGridView.cs">
       <SubType>Component</SubType>
@@ -130,6 +158,18 @@
     <Compile Include="Migrations\201910230328477_AddSalary.designer.cs">
       <DependentUpon>201910230328477_AddSalary.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910231713386_UpdateIdentityNumberInCustomer.cs" />
+    <Compile Include="Migrations\201910231713386_UpdateIdentityNumberInCustomer.designer.cs">
+      <DependentUpon>201910231713386_UpdateIdentityNumberInCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910250457109_RemoveSupplier.cs" />
+    <Compile Include="Migrations\201910250457109_RemoveSupplier.designer.cs">
+      <DependentUpon>201910250457109_RemoveSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910250500044_AddSupplierBack.cs" />
+    <Compile Include="Migrations\201910250500044_AddSupplierBack.designer.cs">
+      <DependentUpon>201910250500044_AddSupplierBack.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -139,17 +179,20 @@
     <Compile Include="Models\ProductBrand.cs" />
     <Compile Include="Models\ProductType.cs" />
     <Compile Include="Models\Promotion.cs" />
-    <Compile Include="Models\Salary.cs" />
-    <Compile Include="Models\Staff.cs" />
     <Compile Include="Models\Supplier.cs" />
-    <Compile Include="Models\SupplierProduct.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUIs\Manager\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUIs\Manager\ProductBrandForm.resx">
       <DependentUpon>ProductBrandForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIs\Manager\ProductForm.resx">
+      <DependentUpon>ProductForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUIs\Manager\ProductTypeForm.resx">
       <DependentUpon>ProductTypeForm.cs</DependentUpon>
@@ -160,8 +203,8 @@
     <EmbeddedResource Include="GUIs\Manager\SupplierForm.resx">
       <DependentUpon>SupplierForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUIs\Staffs\CustomerRegister.resx">
-      <DependentUpon>CustomerRegister.cs</DependentUpon>
+    <EmbeddedResource Include="GUIs\Staffs\CustomerRegisterForm.resx">
+      <DependentUpon>CustomerRegisterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910211050446_init.resx">
       <DependentUpon>201910211050446_init.cs</DependentUpon>
@@ -181,6 +224,16 @@
     <EmbeddedResource Include="Migrations\201910230328477_AddSalary.resx">
       <DependentUpon>201910230328477_AddSalary.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910231713386_UpdateIdentityNumberInCustomer.resx">
+      <DependentUpon>201910231713386_UpdateIdentityNumberInCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910250457109_RemoveSupplier.resx">
+      <DependentUpon>201910250457109_RemoveSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910250500044_AddSupplierBack.resx">
+      <DependentUpon>201910250500044_AddSupplierBack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -191,15 +244,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\QuanLySieuThi_Version2.Models.Customer.datasource" />
     <None Include="Properties\DataSources\QuanLySieuThi_Version2.Models.DTOs.ProductTypeProductDTO.datasource" />
     <None Include="Properties\DataSources\QuanLySieuThi_Version2.Models.DTOs.SupplierProductDTO.datasource" />
     <None Include="Properties\DataSources\QuanLySieuThi_Version2.Models.Product.datasource" />
     <None Include="Properties\DataSources\QuanLySieuThi_Version2.Models.ProductBrand.datasource" />
     <None Include="Properties\DataSources\QuanLySieuThi_Version2.Models.ProductType.datasource" />
-    <None Include="Properties\DataSources\QuanLySieuThi_Version2.Models.ProductTypeProduct.datasource" />
     <None Include="Properties\DataSources\QuanLySieuThi_Version2.Models.Promotion.datasource" />
     <None Include="Properties\DataSources\QuanLySieuThi_Version2.Models.Supplier.datasource" />
-    <None Include="Properties\DataSources\QuanLySieuThi_Version2.Models.SupplierProduct.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -41,7 +41,7 @@ namespace QuanLySieuThi_Version2.Models
         #endregion
 
         #region Navigation Properties
-        public virtual ObservableListSource<SupplierProduct> SupplierProducts { get; set; }
+        public  ObservableListSource<Product> Products { get; set; }
         #endregion
     }
 }

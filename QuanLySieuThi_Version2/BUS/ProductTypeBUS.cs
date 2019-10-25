@@ -11,13 +11,11 @@ using System.Threading.Tasks;
 
 namespace QuanLySieuThi_Version2.BUS
 {
-    class ProductTypeBUS : IDisposeDbContext
+    class ProductTypeBUS : BaseBUS
     {
-        ApplicationDbContext db;
 
-        public ProductTypeBUS()
+        public ProductTypeBUS() :base()
         {
-            db = new ApplicationDbContext();
             db.ProductTypes.Include(p => p.Products).Load();
             db.Products.Include(p=>p.ProductTypes).Load();
         }
@@ -169,10 +167,7 @@ namespace QuanLySieuThi_Version2.BUS
             }
         }
 
-        public void Dispose()
-        {
-            db.Dispose();
-        }
+
 
         
     }

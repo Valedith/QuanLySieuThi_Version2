@@ -11,13 +11,10 @@ using System.Threading.Tasks;
 
 namespace QuanLySieuThi_Version2.BUS
 {
-    class ProductBrandBUS
+    class ProductBrandBUS : BaseBUS
     {
-        ApplicationDbContext db;
-
-        public ProductBrandBUS()
+        public ProductBrandBUS():base()
         {
-            db = new ApplicationDbContext();
             db.ProductBrands.Load();
         }
 
@@ -141,9 +138,6 @@ namespace QuanLySieuThi_Version2.BUS
             }
         }
 
-        public void Dispose()
-        {
-            db.Dispose();
-        }
+
     }
 }
