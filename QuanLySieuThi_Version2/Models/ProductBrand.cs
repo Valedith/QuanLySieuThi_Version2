@@ -33,7 +33,8 @@ namespace QuanLySieuThi_Version2.Models
         #endregion
 
         #region Navigation Properties
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual ObservableListSource<Product> Products { get; set; }
         #endregion
+
     }
 }

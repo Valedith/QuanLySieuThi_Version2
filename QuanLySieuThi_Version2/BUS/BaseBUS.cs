@@ -9,7 +9,7 @@ namespace QuanLySieuThi_Version2.BUS
 {
     class BaseBUS
     {
-        public ApplicationDbContext db;
+        protected ApplicationDbContext db;
         public BaseBUS()
         {
             db = new ApplicationDbContext();

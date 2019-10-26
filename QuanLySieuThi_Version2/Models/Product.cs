@@ -1,10 +1,23 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using QuanLySieuThi_Version2.Infrastructures;
 namespace QuanLySieuThi_Version2.Models
 {
     class Product
     {
+        public Product() { }
+        public Product(string name, int quantity, decimal price, string detail, bool isActive, ProductBrand brand)
+        {
+            Name = name;
+            Quantity = quantity;
+            Price = price;
+            Detail = detail;
+            IsActive = isActive;
+            ProductBrand = brand;
+        }
+
+
         #region Properties
         public int Id { get; set; }
 
@@ -27,11 +40,24 @@ namespace QuanLySieuThi_Version2.Models
         public int ProductBrandId { get; set; }
         public virtual ProductBrand ProductBrand { get; set; }
 
-        public  ObservableListSource<ProductType> ProductTypes { get; set; }
+        public ObservableListSource<ProductType> ProductTypes { get; set; }
 
-       public  ObservableListSource<Supplier> Suppliers { get; set; }
+        public ObservableListSource<Supplier> Suppliers { get; set; }
 
-        public  ObservableListSource<Promotion> Promotions { get; set; }
+        public ObservableListSource<Promotion> Promotions { get; set; }
         #endregion
+
+        [NotMapped]
+        public string ProductBrandName
+        {
+            get
+            {
+                if (ProductBrand != null)
+                {
+                    return ProductBrand.Name;
+                }
+                return null;
+            }
+        }
     }
 }

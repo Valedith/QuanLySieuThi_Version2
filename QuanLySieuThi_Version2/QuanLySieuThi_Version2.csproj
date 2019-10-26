@@ -114,24 +114,14 @@
     <Compile Include="GUIs\Manager\SupplierForm.Designer.cs">
       <DependentUpon>SupplierForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUIs\Manager\MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUIs\Manager\MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUIs\Staffs\CustomerRegisterForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUIs\Staffs\CustomerRegisterForm.Designer.cs">
-      <DependentUpon>CustomerRegisterForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Infrastructures\CustomDataGridView.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Infrastructures\CustomResult.cs" />
     <Compile Include="Infrastructures\IDisposeDbContext.cs" />
     <Compile Include="Infrastructures\ModelState.cs" />
+    <Compile Include="Infrastructures\PropertyComparer.cs" />
+    <Compile Include="Infrastructures\SortableBindingList.cs" />
     <Compile Include="Infrastructures\Validator.cs" />
     <Compile Include="Infrastructures\ObservableListSource .cs" />
     <Compile Include="Migrations\201910211050446_init.cs" />
@@ -185,9 +175,6 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUIs\Manager\MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUIs\Manager\ProductBrandForm.resx">
       <DependentUpon>ProductBrandForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -202,9 +189,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUIs\Manager\SupplierForm.resx">
       <DependentUpon>SupplierForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUIs\Staffs\CustomerRegisterForm.resx">
-      <DependentUpon>CustomerRegisterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910211050446_init.resx">
       <DependentUpon>201910211050446_init.cs</DependentUpon>
