@@ -16,7 +16,27 @@ namespace QuanLySieuThi_Version2.Models
             IsActive = isActive;
             ProductBrand = brand;
         }
-
+        public Product(string name, int quantity, decimal price, string unit,string detail, bool isActive, int brandId)
+        {
+            Name = name;
+            Quantity = quantity;
+            Price = price;
+            Unit = unit;
+            Detail = detail;
+            IsActive = isActive;
+            ProductBrandId = brandId;
+        }
+        public Product(string name, int quantity, decimal price, string detail, string unit,bool isActive, int brandId, ProductBrand productBrand)
+        {
+            Name = name;
+            Quantity = quantity;
+            Price = price;
+            Unit = unit;
+            Detail = detail;
+            IsActive = isActive;
+            ProductBrandId = brandId;
+            ProductBrand = productBrand;
+        }
 
         #region Properties
         public int Id { get; set; }
@@ -26,6 +46,8 @@ namespace QuanLySieuThi_Version2.Models
         public string Name { get; set; }
 
         public int Quantity { get; set; }
+
+        public string Unit { get; set; }
 
         [DataType(DataType.Currency)]
         public decimal Price { get; set; }

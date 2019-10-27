@@ -117,16 +117,33 @@ namespace QuanLySieuThi_Version2.BUS
             {
                 if (!ModelState.IsValid(product))
                 {
-                    return new CustomResult(CustomResultType.InvalidModelState);
+                    return new CustomResult(CustomResultType.InvalidModelState, CustomInvalidInputType.Name);
                 }
+                List<ProductType> types = product.ProductTypes.ToList();
+                List<Supplier> suppliers = product.Suppliers.ToList();
+                product.ProductTypes.Clear();
+                product.Suppliers.Clear();
+
+                foreach (var type in types)
+                {
+                    product.ProductTypes.Add(db.ProductTypes.Find(type.Id));
+
+                }
+                foreach (var supplier in suppliers)
+                {
+                    product.Suppliers.Add(db.Suppliers.Find(supplier.Id));
+
+                }
+
                 db.Products.Add(product);
                 db.SaveChanges();
                 return new CustomResult(CustomResultType.Succeed);
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                return new CustomResult(CustomResultType.UnexpectedError, "Some unexpected error has occured.\n" + ex.Message);
+                return new CustomResult(CustomResultType.UnexpectedError);
             }
+
         }
 
         public CustomResult EditProducts(Product product)

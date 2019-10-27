@@ -90,11 +90,11 @@
     <Compile Include="GUIs\Manager\ProductBrandForm.Designer.cs">
       <DependentUpon>ProductBrandForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUIs\Manager\ProductForm - Copy.cs">
+    <Compile Include="GUIs\Manager\AddProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUIs\Manager\ProductForm - Copy.Designer.cs">
-      <DependentUpon>ProductForm - Copy.cs</DependentUpon>
+    <Compile Include="GUIs\Manager\AddProductForm.Designer.cs">
+      <DependentUpon>AddProductForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUIs\Manager\ProductForm.cs">
       <SubType>Form</SubType>
@@ -178,6 +178,10 @@
     <Compile Include="Migrations\201910261927580_AddUniquesBack.designer.cs">
       <DependentUpon>201910261927580_AddUniquesBack.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910271602077_AddUnitToProduct.cs" />
+    <Compile Include="Migrations\201910271602077_AddUnitToProduct.designer.cs">
+      <DependentUpon>201910271602077_AddUnitToProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -196,8 +200,8 @@
     <EmbeddedResource Include="GUIs\Manager\ProductBrandForm.resx">
       <DependentUpon>ProductBrandForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUIs\Manager\ProductForm - Copy.resx">
-      <DependentUpon>ProductForm - Copy.cs</DependentUpon>
+    <EmbeddedResource Include="GUIs\Manager\AddProductForm.resx">
+      <DependentUpon>AddProductForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUIs\Manager\ProductForm.resx">
       <DependentUpon>ProductForm.cs</DependentUpon>
@@ -246,6 +250,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910261927580_AddUniquesBack.resx">
       <DependentUpon>201910261927580_AddUniquesBack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910271602077_AddUnitToProduct.resx">
+      <DependentUpon>201910271602077_AddUnitToProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

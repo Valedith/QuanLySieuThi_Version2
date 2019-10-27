@@ -14,33 +14,33 @@ using System.Windows.Forms;
 
 namespace QuanLySieuThi_Version2.GUIs.Manager
 {
-    public partial class ProductForm_Copy : Form
+    partial class AddProductForm : Form
     {
-        ProductBUS bus = new ProductBUS();
+        ProductBUS bus;
         ObservableListSource<ProductType> selectedProductTypes;
         ObservableListSource<Supplier> selectedSuppliers;
 
-        public ProductForm_Copy()
+        public AddProductForm(
+            BindingSource productTypeBindingSource,
+            BindingSource supplierBindingSource,
+            BindingSource productBrandBindingSource
+            )
+
         {
             InitializeComponent();
             selectedProductTypes = new ObservableListSource<ProductType>();
             selectedSuppliers = new ObservableListSource<Supplier>();
+            bus = new ProductBUS();
+            productBrandBindingSource_All.DataSource = productBrandBindingSource.DataSource;
+            productTypeBindingSource_All.DataSource = productTypeBindingSource.DataSource;
+            supplierBindingSource_All.DataSource = supplierBindingSource.DataSource;
         }
+
         #region exe orders
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            try
-            {
-                productBrandBindingSource_All.DataSource = bus.GetProductBrands();
-                productTypeBindingSource_All.DataSource = bus.GetProductTypes();
-                supplierBindingSource_All.DataSource = bus.GetSuppliers();
-            }
-            catch (Exception ex)
-            {
-                ShowErrorMessagerBox("Some unexpected error has occured.\n" + ex.Message);
-            }
-            PopulateProductBindingSource(false);
+            ActiveControl = txtProductName;
 
         }
         protected override void OnClosing(CancelEventArgs e)
@@ -51,17 +51,6 @@ namespace QuanLySieuThi_Version2.GUIs.Manager
         #endregion
 
         #region Private Methods
-        private void PopulateProductBindingSource(bool showLocked)
-        {
-            try
-            {
-                productBindingSource.DataSource = bus.GetAllProducts(showLocked);
-            }
-            catch (Exception ex)
-            {
-                ShowErrorMessagerBox("Some unexpected error has occured.\n" + ex.Message);
-            }
-        }
         private bool GetConfirmation(string question, string caption)
         {
             var confirmResult = MessageBox.Show(question,
@@ -78,45 +67,71 @@ namespace QuanLySieuThi_Version2.GUIs.Manager
         {
             MessageBox.Show(errorMessage, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-        #endregion
-
-        #region Events
-        private void checkBoxShowLocked_CheckedChanged(object sender, EventArgs e)
+        private void ClearControlValues()
         {
-            PopulateProductBindingSource(checkBoxShowLocked.Checked);
+            txtProductName.Clear();
+            txtDetail.Clear();
+            txtUnit.Clear();
+            numPrice.Value = 0;
+            numQuantity.Value = 0;
+            comboBoxProductBrand_Add.SelectedIndex = 0;
+            comboBoxProductTypes_Add.SelectedIndex = 0;
+            comboBoxSuppliers_Add.SelectedIndex = 0;
+            isActiveCheckBox.Checked = true;
+            dataGridViewSelectedTypes.Rows.Clear();
+            dataGridViewSelectedSuppliers.Rows.Clear();
+            selectedProductTypes.Clear();
+            selectedSuppliers.Clear();
         }
-        private void btnAddProduct_Click(object sender, EventArgs e)
+        private void AddProduct()
         {
-            GetConfirmation("Do you want to add this Product?", "Confirm add");
+            if (!GetConfirmation("Do you want to add this Product?", "Confirm add")) { return; };
             try
             {
                 Product product = new Product(txtProductName.Text.Trim(),
                                         (int)numQuantity.Value,
                                         numPrice.Value,
+                                        txtUnit.Text.Trim(),
                                         txtDetail.Text.Trim(),
                                         isActiveCheckBox.Checked,
-                                        productBrandBindingSource_All.Current as ProductBrand
-                                        );
-            product.ProductTypes = selectedProductTypes;
-            CustomResult cr = bus.AddProduct(product);
-            if (cr.Result == CustomResultType.Succeed)
-            {
-                MessageBox.Show("DONE");
-                dataGridViewSelectedTypes.Rows.Clear();
-                dataGridViewSelectedSuppliers.Rows.Clear();
-                selectedSuppliers.Clear();
-                selectedProductTypes.Clear();
+                                        (productBrandBindingSource_All.Current as ProductBrand).Id);
+                product.ProductTypes = selectedProductTypes;
+                product.Suppliers = selectedSuppliers;
+                CustomResult cr = bus.AddProduct(product);
+                if (cr.Result == CustomResultType.Succeed)
+                {
+                    MessageBox.Show("Product added.", "Add Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearControlValues();
+                    txtProductName.Focus();
+                }
+                else if (cr.Result == CustomResultType.InvalidModelState)
+                {
+                    foreach (var error in ModelState.ErrorMessages)
+                        MessageBox.Show(error, "Error"
+                                            , MessageBoxButtons.OK
+                                            , MessageBoxIcon.Error);
+                    txtProductName.Focus();
+                }
+                else
+                {
+                    throw new Exception(cr.ErrorMessage);
+                }
             }
-            else
-            {
-                throw new Exception(cr.ErrorMessage);
-            }
-        }
             catch (Exception ex)
             {
                 ShowErrorMessagerBox(ex.Message);
-    }
-}
+            }
+        }
+        #endregion
+
+        #region Events
+
+        private void btnAddProduct_Click(object sender, EventArgs e)
+        {
+            AddProduct();
+        }
+
+
 
         //Add Selected Types and Suppliers
         private void btnAddProductType_Click(object sender, EventArgs e)
@@ -157,9 +172,10 @@ namespace QuanLySieuThi_Version2.GUIs.Manager
                         return;
                     }
                 }
-                var index = dataGridViewSelectedTypes.Rows.Add();
-                dataGridViewSelectedTypes.Rows[index].Cells[0].Value = selectedSupplier.Id;
-                dataGridViewSelectedTypes.Rows[index].Cells[1].Value = selectedSupplier.Name;
+                var index = dataGridViewSelectedSuppliers.Rows.Add();
+                dataGridViewSelectedSuppliers.Rows[index].Cells[0].Value = selectedSupplier.Id;
+                dataGridViewSelectedSuppliers.Rows[index].Cells[1].Value = selectedSupplier.Name;
+                dataGridViewSelectedSuppliers.Rows[index].Cells[2].Value = selectedSupplier.Address;
                 selectedSuppliers.Add(selectedSupplier);
             }
             catch (Exception ex)
@@ -196,12 +212,20 @@ namespace QuanLySieuThi_Version2.GUIs.Manager
             }
 
         }
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            ClearControlValues();
+            txtProductName.Focus();
+        }
+        private void btnAddAndClose_Click(object sender, EventArgs e)
+        {
+            AddProduct();
+            Close();
+        }
+
 
         #endregion
 
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 }

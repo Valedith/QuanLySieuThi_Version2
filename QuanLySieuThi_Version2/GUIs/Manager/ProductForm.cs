@@ -78,6 +78,22 @@ namespace QuanLySieuThi_Version2.GUIs.Manager
         {
             MessageBox.Show(errorMessage, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+        private void ReloadBindingSources()
+        {
+            try
+            {
+                bus.ReloadContext();
+                PopulateProductBindingSource(checkBoxShowLocked.Checked);
+
+                productDataGridView.Refresh();
+                productTypesDataGridView.Refresh();
+                suppliersDataGridView.Refresh();
+            }
+            catch (Exception ex)
+            {
+                ShowErrorMessagerBox(ex.Message);
+            }
+        }
         #endregion
 
         #region Events
@@ -87,35 +103,8 @@ namespace QuanLySieuThi_Version2.GUIs.Manager
         }
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
-            GetConfirmation("Do you want to add this Product?", "Confirm add");
-            try
-            {
-                Product product = new Product(txtProductName.Text.Trim(),
-                                        (int)numQuantity.Value,
-                                        numPrice.Value,
-                                        txtDetail.Text.Trim(),
-                                        isActiveCheckBox.Checked,
-                                        productBrandBindingSource_All.Current as ProductBrand
-                                        );
-                product.ProductTypes = selectedProductTypes;
-                CustomResult cr = bus.AddProduct(product);
-                if (cr.Result == CustomResultType.Succeed)
-                {
-                    MessageBox.Show("DONE");
-                    //dataGridViewSelectedTypes.Rows.Clear();
-                    //dataGridViewSelectedSuppliers.Rows.Clear();
-                    selectedSuppliers.Clear();
-                    selectedProductTypes.Clear();
-                }
-                else
-                {
-                    throw new Exception(cr.ErrorMessage);
-                }
-            }
-            catch (Exception ex)
-            {
-                ShowErrorMessagerBox(ex.Message);
-            }
+            new AddProductForm(productTypeBindingSource_All, supplierBindingSource_All, productBrandBindingSource_All).ShowDialog();
+            ReloadBindingSources();
         }
 
         private void productTypesDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -134,21 +123,10 @@ namespace QuanLySieuThi_Version2.GUIs.Manager
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            try
-            {
-                bus.ReloadContext();
-                PopulateProductBindingSource(checkBoxShowLocked.Checked);
-
-                productDataGridView.Refresh();
-                productTypesDataGridView.Refresh();
-                suppliersDataGridView.Refresh();
-            }
-            catch (Exception ex)
-            {
-                ShowErrorMessagerBox(ex.Message);
-            }
-
+            ReloadBindingSources();
         }
+
+
 
         private void btnAddProductType_Click(object sender, EventArgs e)
         {

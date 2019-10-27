@@ -117,61 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="label2.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="nameLabel1.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="label3.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="nameLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="quantityLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="detailLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="priceLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="isActiveLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="label4.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="Unit.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="productBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="dataGridViewButtonColumnDeleteSelectedType.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="productTypesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>190, 17</value>
-  </metadata>
-  <metadata name="dataGridViewButtonColumnDeleteSelectedSupplier.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="suppliersBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>589, 17</value>
-  </metadata>
-  <metadata name="promotionsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>395, 17</value>
-  </metadata>
-  <metadata name="productBrandBindingSource_All.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>210, 56</value>
-  </metadata>
-  <metadata name="productTypeBindingSource_All.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>768, 17</value>
-  </metadata>
-  <metadata name="supplierBindingSource_All.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 56</value>
-  </metadata>
+  <data name="Target" xml:space="preserve">
+    <value>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</value>
+  </data>
+  <data name="DefaultSchema" xml:space="preserve">
+    <value>dbo</value>
+  </data>
 </root>

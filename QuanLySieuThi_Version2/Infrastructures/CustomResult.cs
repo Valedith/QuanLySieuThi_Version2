@@ -24,6 +24,11 @@ namespace QuanLySieuThi_Version2.Infrastructures
             InvalidInputType = invalidInputType;
             ErrorMessage = errorMessage;
         }
+        public CustomResult(CustomResultType resultType, CustomInvalidInputType invalidInputType)
+        {
+            Result = resultType;
+            InvalidInputType = invalidInputType;
+        }
         public CustomResultType Result { get; set; }
         public CustomInvalidInputType InvalidInputType { get; set; }
         public string ErrorMessage { get; set; }
@@ -34,6 +39,6 @@ namespace QuanLySieuThi_Version2.Infrastructures
     }
     enum CustomInvalidInputType
     {
-        PhoneNumber
+        PhoneNumber, Name
     }
 }
