@@ -1,6 +1,6 @@
 ﻿namespace QuanLySieuThi_Version2.GUIs.Manager
 {
-    partial class ProductForm
+    partial class ProductForm_Copy
     {
         /// <summary>
         /// Required designer variable.
@@ -53,14 +53,12 @@
             this.splitContainerTypesAndSupplier = new System.Windows.Forms.SplitContainer();
             this.groupBoxProductTypes = new System.Windows.Forms.GroupBox();
             this.productTypesDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewButtonColumnDeleteSelectedType = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.productTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBoxSuppliers = new System.Windows.Forms.GroupBox();
             this.suppliersDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewButtonColumnDeleteSelectedSupplier = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,8 +70,21 @@
             this.btnDELETE = new System.Windows.Forms.Button();
             this.tableLayoutPanelActionButtons = new System.Windows.Forms.TableLayoutPanel();
             this.btnAddProduct = new System.Windows.Forms.Button();
-            this.btnSaveChanges = new System.Windows.Forms.Button();
+            this.btnEditProduct = new System.Windows.Forms.Button();
+            this.btnLockProduct = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.tableLayoutPanelAddTypesAndSupplier = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBoxSelectedTypes = new System.Windows.Forms.GroupBox();
+            this.dataGridViewSelectedTypes = new System.Windows.Forms.DataGridView();
+            this.dataGridViewColumnSelectedTypesId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewColumnSelectedTypesName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewButtonColumnDeleteSelectedType = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.groupBoxSelectedSuppliers = new System.Windows.Forms.GroupBox();
+            this.dataGridViewSelectedSuppliers = new System.Windows.Forms.DataGridView();
+            this.dataGridViewColumnSelectedSupplierId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewColumnSelectedSupplierName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewColumnSelectedSupplierAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewButtonColumnDeleteSelectedSupplier = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tableLayoutPanelProductsDetail = new System.Windows.Forms.TableLayoutPanel();
             this.isActiveCheckBox = new System.Windows.Forms.CheckBox();
             this.txtDetail = new System.Windows.Forms.TextBox();
@@ -119,6 +130,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.promotionsBindingSource)).BeginInit();
             this.groupBoxActions.SuspendLayout();
             this.tableLayoutPanelActionButtons.SuspendLayout();
+            this.tableLayoutPanelAddTypesAndSupplier.SuspendLayout();
+            this.groupBoxSelectedTypes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSelectedTypes)).BeginInit();
+            this.groupBoxSelectedSuppliers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSelectedSuppliers)).BeginInit();
             this.tableLayoutPanelProductsDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBrandBindingSource_All)).BeginInit();
@@ -391,11 +407,11 @@
             // productTypesDataGridView
             // 
             this.productTypesDataGridView.AllowUserToAddRows = false;
+            this.productTypesDataGridView.AllowUserToDeleteRows = false;
             this.productTypesDataGridView.AllowUserToOrderColumns = true;
             this.productTypesDataGridView.AutoGenerateColumns = false;
             this.productTypesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.productTypesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewButtonColumnDeleteSelectedType,
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewCheckBoxColumn2});
@@ -406,17 +422,6 @@
             this.productTypesDataGridView.ReadOnly = true;
             this.productTypesDataGridView.Size = new System.Drawing.Size(383, 187);
             this.productTypesDataGridView.TabIndex = 0;
-            this.productTypesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productTypesDataGridView_CellContentClick);
-            // 
-            // dataGridViewButtonColumnDeleteSelectedType
-            // 
-            this.dataGridViewButtonColumnDeleteSelectedType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewButtonColumnDeleteSelectedType.HeaderText = "";
-            this.dataGridViewButtonColumnDeleteSelectedType.Name = "dataGridViewButtonColumnDeleteSelectedType";
-            this.dataGridViewButtonColumnDeleteSelectedType.ReadOnly = true;
-            this.dataGridViewButtonColumnDeleteSelectedType.Text = "Delete";
-            this.dataGridViewButtonColumnDeleteSelectedType.UseColumnTextForButtonValue = true;
-            this.dataGridViewButtonColumnDeleteSelectedType.Width = 5;
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -463,11 +468,11 @@
             // suppliersDataGridView
             // 
             this.suppliersDataGridView.AllowUserToAddRows = false;
+            this.suppliersDataGridView.AllowUserToDeleteRows = false;
             this.suppliersDataGridView.AllowUserToOrderColumns = true;
             this.suppliersDataGridView.AutoGenerateColumns = false;
             this.suppliersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.suppliersDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewButtonColumnDeleteSelectedSupplier,
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12,
@@ -480,16 +485,6 @@
             this.suppliersDataGridView.ReadOnly = true;
             this.suppliersDataGridView.Size = new System.Drawing.Size(383, 197);
             this.suppliersDataGridView.TabIndex = 0;
-            // 
-            // dataGridViewButtonColumnDeleteSelectedSupplier
-            // 
-            this.dataGridViewButtonColumnDeleteSelectedSupplier.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewButtonColumnDeleteSelectedSupplier.HeaderText = "";
-            this.dataGridViewButtonColumnDeleteSelectedSupplier.Name = "dataGridViewButtonColumnDeleteSelectedSupplier";
-            this.dataGridViewButtonColumnDeleteSelectedSupplier.ReadOnly = true;
-            this.dataGridViewButtonColumnDeleteSelectedSupplier.Text = "Delete";
-            this.dataGridViewButtonColumnDeleteSelectedSupplier.UseColumnTextForButtonValue = true;
-            this.dataGridViewButtonColumnDeleteSelectedSupplier.Width = 5;
             // 
             // dataGridViewTextBoxColumn10
             // 
@@ -545,7 +540,9 @@
             // 
             // groupBoxActions
             // 
+            this.groupBoxActions.Controls.Add(this.btnDELETE);
             this.groupBoxActions.Controls.Add(this.tableLayoutPanelActionButtons);
+            this.groupBoxActions.Controls.Add(this.tableLayoutPanelAddTypesAndSupplier);
             this.groupBoxActions.Controls.Add(this.tableLayoutPanelProductsDetail);
             this.groupBoxActions.Controls.Add(this.tableLayoutPanel1);
             this.groupBoxActions.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -558,13 +555,13 @@
             // 
             // btnDELETE
             // 
+            this.btnDELETE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDELETE.BackColor = System.Drawing.Color.DarkRed;
-            this.btnDELETE.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnDELETE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnDELETE.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnDELETE.Location = new System.Drawing.Point(419, 3);
+            this.btnDELETE.Location = new System.Drawing.Point(437, 419);
             this.btnDELETE.Name = "btnDELETE";
-            this.btnDELETE.Size = new System.Drawing.Size(90, 26);
+            this.btnDELETE.Size = new System.Drawing.Size(75, 23);
             this.btnDELETE.TabIndex = 6;
             this.btnDELETE.Text = "DELETE";
             this.btnDELETE.UseVisualStyleBackColor = false;
@@ -574,14 +571,14 @@
             this.tableLayoutPanelActionButtons.ColumnCount = 4;
             this.tableLayoutPanelActionButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanelActionButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanelActionButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.25F));
-            this.tableLayoutPanelActionButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.75F));
-            this.tableLayoutPanelActionButtons.Controls.Add(this.btnDELETE, 3, 0);
+            this.tableLayoutPanelActionButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelActionButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanelActionButtons.Controls.Add(this.btnAddProduct, 0, 0);
-            this.tableLayoutPanelActionButtons.Controls.Add(this.btnSaveChanges, 1, 0);
-            this.tableLayoutPanelActionButtons.Controls.Add(this.btnRefresh, 2, 0);
+            this.tableLayoutPanelActionButtons.Controls.Add(this.btnEditProduct, 1, 0);
+            this.tableLayoutPanelActionButtons.Controls.Add(this.btnLockProduct, 2, 0);
+            this.tableLayoutPanelActionButtons.Controls.Add(this.btnRefresh, 3, 0);
             this.tableLayoutPanelActionButtons.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanelActionButtons.Location = new System.Drawing.Point(3, 224);
+            this.tableLayoutPanelActionButtons.Location = new System.Drawing.Point(3, 380);
             this.tableLayoutPanelActionButtons.Name = "tableLayoutPanelActionButtons";
             this.tableLayoutPanelActionButtons.RowCount = 1;
             this.tableLayoutPanelActionButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -599,27 +596,168 @@
             this.btnAddProduct.UseVisualStyleBackColor = true;
             this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
-            // btnSaveChanges
+            // btnEditProduct
             // 
-            this.btnSaveChanges.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSaveChanges.Location = new System.Drawing.Point(131, 3);
-            this.btnSaveChanges.Name = "btnSaveChanges";
-            this.btnSaveChanges.Size = new System.Drawing.Size(122, 26);
-            this.btnSaveChanges.TabIndex = 0;
-            this.btnSaveChanges.Text = "Save Changes";
-            this.btnSaveChanges.UseVisualStyleBackColor = true;
-            this.btnSaveChanges.Click += new System.EventHandler(this.btnEditProduct_Click);
+            this.btnEditProduct.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnEditProduct.Location = new System.Drawing.Point(131, 3);
+            this.btnEditProduct.Name = "btnEditProduct";
+            this.btnEditProduct.Size = new System.Drawing.Size(122, 26);
+            this.btnEditProduct.TabIndex = 0;
+            this.btnEditProduct.Text = "Edit Product";
+            this.btnEditProduct.UseVisualStyleBackColor = true;
+            // 
+            // btnLockProduct
+            // 
+            this.btnLockProduct.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnLockProduct.Location = new System.Drawing.Point(259, 3);
+            this.btnLockProduct.Name = "btnLockProduct";
+            this.btnLockProduct.Size = new System.Drawing.Size(122, 26);
+            this.btnLockProduct.TabIndex = 0;
+            this.btnLockProduct.Text = "Lock/Unlock Product";
+            this.btnLockProduct.UseVisualStyleBackColor = true;
             // 
             // btnRefresh
             // 
             this.btnRefresh.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnRefresh.Location = new System.Drawing.Point(259, 3);
+            this.btnRefresh.Location = new System.Drawing.Point(387, 3);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(154, 26);
+            this.btnRefresh.Size = new System.Drawing.Size(122, 26);
             this.btnRefresh.TabIndex = 0;
-            this.btnRefresh.Text = "Refresh/Discard Changes";
+            this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // tableLayoutPanelAddTypesAndSupplier
+            // 
+            this.tableLayoutPanelAddTypesAndSupplier.ColumnCount = 2;
+            this.tableLayoutPanelAddTypesAndSupplier.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelAddTypesAndSupplier.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelAddTypesAndSupplier.Controls.Add(this.groupBoxSelectedTypes, 0, 0);
+            this.tableLayoutPanelAddTypesAndSupplier.Controls.Add(this.groupBoxSelectedSuppliers, 1, 0);
+            this.tableLayoutPanelAddTypesAndSupplier.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanelAddTypesAndSupplier.Location = new System.Drawing.Point(3, 224);
+            this.tableLayoutPanelAddTypesAndSupplier.Name = "tableLayoutPanelAddTypesAndSupplier";
+            this.tableLayoutPanelAddTypesAndSupplier.RowCount = 1;
+            this.tableLayoutPanelAddTypesAndSupplier.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelAddTypesAndSupplier.Size = new System.Drawing.Size(512, 156);
+            this.tableLayoutPanelAddTypesAndSupplier.TabIndex = 4;
+            // 
+            // groupBoxSelectedTypes
+            // 
+            this.groupBoxSelectedTypes.Controls.Add(this.dataGridViewSelectedTypes);
+            this.groupBoxSelectedTypes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBoxSelectedTypes.Location = new System.Drawing.Point(3, 3);
+            this.groupBoxSelectedTypes.Name = "groupBoxSelectedTypes";
+            this.groupBoxSelectedTypes.Size = new System.Drawing.Size(250, 150);
+            this.groupBoxSelectedTypes.TabIndex = 0;
+            this.groupBoxSelectedTypes.TabStop = false;
+            this.groupBoxSelectedTypes.Text = "Selected Types";
+            // 
+            // dataGridViewSelectedTypes
+            // 
+            this.dataGridViewSelectedTypes.AllowUserToAddRows = false;
+            this.dataGridViewSelectedTypes.AllowUserToDeleteRows = false;
+            this.dataGridViewSelectedTypes.AllowUserToOrderColumns = true;
+            this.dataGridViewSelectedTypes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSelectedTypes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewColumnSelectedTypesId,
+            this.dataGridViewColumnSelectedTypesName,
+            this.dataGridViewButtonColumnDeleteSelectedType});
+            this.dataGridViewSelectedTypes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewSelectedTypes.Location = new System.Drawing.Point(3, 16);
+            this.dataGridViewSelectedTypes.Name = "dataGridViewSelectedTypes";
+            this.dataGridViewSelectedTypes.ReadOnly = true;
+            this.dataGridViewSelectedTypes.Size = new System.Drawing.Size(244, 131);
+            this.dataGridViewSelectedTypes.TabIndex = 0;
+            this.dataGridViewSelectedTypes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSelectedTypes_CellContentClick);
+            // 
+            // dataGridViewColumnSelectedTypesId
+            // 
+            this.dataGridViewColumnSelectedTypesId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewColumnSelectedTypesId.HeaderText = "Id";
+            this.dataGridViewColumnSelectedTypesId.Name = "dataGridViewColumnSelectedTypesId";
+            this.dataGridViewColumnSelectedTypesId.ReadOnly = true;
+            this.dataGridViewColumnSelectedTypesId.Width = 41;
+            // 
+            // dataGridViewColumnSelectedTypesName
+            // 
+            this.dataGridViewColumnSelectedTypesName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewColumnSelectedTypesName.HeaderText = "Name";
+            this.dataGridViewColumnSelectedTypesName.Name = "dataGridViewColumnSelectedTypesName";
+            this.dataGridViewColumnSelectedTypesName.ReadOnly = true;
+            // 
+            // dataGridViewButtonColumnDeleteSelectedType
+            // 
+            this.dataGridViewButtonColumnDeleteSelectedType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewButtonColumnDeleteSelectedType.HeaderText = "Delete";
+            this.dataGridViewButtonColumnDeleteSelectedType.Name = "dataGridViewButtonColumnDeleteSelectedType";
+            this.dataGridViewButtonColumnDeleteSelectedType.ReadOnly = true;
+            this.dataGridViewButtonColumnDeleteSelectedType.Text = "Delete";
+            this.dataGridViewButtonColumnDeleteSelectedType.UseColumnTextForButtonValue = true;
+            this.dataGridViewButtonColumnDeleteSelectedType.Width = 44;
+            // 
+            // groupBoxSelectedSuppliers
+            // 
+            this.groupBoxSelectedSuppliers.Controls.Add(this.dataGridViewSelectedSuppliers);
+            this.groupBoxSelectedSuppliers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBoxSelectedSuppliers.Location = new System.Drawing.Point(259, 3);
+            this.groupBoxSelectedSuppliers.Name = "groupBoxSelectedSuppliers";
+            this.groupBoxSelectedSuppliers.Size = new System.Drawing.Size(250, 150);
+            this.groupBoxSelectedSuppliers.TabIndex = 0;
+            this.groupBoxSelectedSuppliers.TabStop = false;
+            this.groupBoxSelectedSuppliers.Text = "Selected Suppliers";
+            // 
+            // dataGridViewSelectedSuppliers
+            // 
+            this.dataGridViewSelectedSuppliers.AllowUserToAddRows = false;
+            this.dataGridViewSelectedSuppliers.AllowUserToDeleteRows = false;
+            this.dataGridViewSelectedSuppliers.AllowUserToOrderColumns = true;
+            this.dataGridViewSelectedSuppliers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSelectedSuppliers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewColumnSelectedSupplierId,
+            this.dataGridViewColumnSelectedSupplierName,
+            this.dataGridViewColumnSelectedSupplierAddress,
+            this.dataGridViewButtonColumnDeleteSelectedSupplier});
+            this.dataGridViewSelectedSuppliers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewSelectedSuppliers.Location = new System.Drawing.Point(3, 16);
+            this.dataGridViewSelectedSuppliers.Name = "dataGridViewSelectedSuppliers";
+            this.dataGridViewSelectedSuppliers.ReadOnly = true;
+            this.dataGridViewSelectedSuppliers.Size = new System.Drawing.Size(244, 131);
+            this.dataGridViewSelectedSuppliers.TabIndex = 0;
+            this.dataGridViewSelectedSuppliers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSelectedSuppliers_CellContentClick);
+            // 
+            // dataGridViewColumnSelectedSupplierId
+            // 
+            this.dataGridViewColumnSelectedSupplierId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewColumnSelectedSupplierId.HeaderText = "Id";
+            this.dataGridViewColumnSelectedSupplierId.Name = "dataGridViewColumnSelectedSupplierId";
+            this.dataGridViewColumnSelectedSupplierId.ReadOnly = true;
+            this.dataGridViewColumnSelectedSupplierId.Width = 41;
+            // 
+            // dataGridViewColumnSelectedSupplierName
+            // 
+            this.dataGridViewColumnSelectedSupplierName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewColumnSelectedSupplierName.HeaderText = "Name";
+            this.dataGridViewColumnSelectedSupplierName.Name = "dataGridViewColumnSelectedSupplierName";
+            this.dataGridViewColumnSelectedSupplierName.ReadOnly = true;
+            this.dataGridViewColumnSelectedSupplierName.Width = 60;
+            // 
+            // dataGridViewColumnSelectedSupplierAddress
+            // 
+            this.dataGridViewColumnSelectedSupplierAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewColumnSelectedSupplierAddress.HeaderText = "Address";
+            this.dataGridViewColumnSelectedSupplierAddress.Name = "dataGridViewColumnSelectedSupplierAddress";
+            this.dataGridViewColumnSelectedSupplierAddress.ReadOnly = true;
+            this.dataGridViewColumnSelectedSupplierAddress.Width = 70;
+            // 
+            // dataGridViewButtonColumnDeleteSelectedSupplier
+            // 
+            this.dataGridViewButtonColumnDeleteSelectedSupplier.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewButtonColumnDeleteSelectedSupplier.HeaderText = "Delete";
+            this.dataGridViewButtonColumnDeleteSelectedSupplier.Name = "dataGridViewButtonColumnDeleteSelectedSupplier";
+            this.dataGridViewButtonColumnDeleteSelectedSupplier.ReadOnly = true;
+            this.dataGridViewButtonColumnDeleteSelectedSupplier.UseColumnTextForButtonValue = true;
+            this.dataGridViewButtonColumnDeleteSelectedSupplier.Width = 44;
             // 
             // tableLayoutPanelProductsDetail
             // 
@@ -660,7 +798,7 @@
             // 
             // isActiveCheckBox
             // 
-            this.isActiveCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.productBindingSource, "IsActive", true));
+            this.isActiveCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.productBindingSource, "IsActive", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.isActiveCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.isActiveCheckBox.Location = new System.Drawing.Point(349, 28);
             this.isActiveCheckBox.Name = "isActiveCheckBox";
@@ -671,7 +809,7 @@
             // 
             // txtDetail
             // 
-            this.txtDetail.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Detail", true));
+            this.txtDetail.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Detail", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txtDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtDetail.Location = new System.Drawing.Point(93, 53);
             this.txtDetail.Multiline = true;
@@ -682,7 +820,7 @@
             // 
             // numQuantity
             // 
-            this.numQuantity.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.productBindingSource, "Quantity", true));
+            this.numQuantity.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.productBindingSource, "Quantity", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.numQuantity.Dock = System.Windows.Forms.DockStyle.Fill;
             this.numQuantity.Location = new System.Drawing.Point(93, 28);
             this.numQuantity.Name = "numQuantity";
@@ -691,7 +829,7 @@
             // 
             // txtProductName
             // 
-            this.txtProductName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Name", true));
+            this.txtProductName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Name", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txtProductName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtProductName.Location = new System.Drawing.Point(93, 3);
             this.txtProductName.Name = "txtProductName";
@@ -700,7 +838,7 @@
             // 
             // comboBoxProductBrand_Add
             // 
-            this.comboBoxProductBrand_Add.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "ProductBrand.Name", true));
+            this.comboBoxProductBrand_Add.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "ProductBrand.Name", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.comboBoxProductBrand_Add.DataSource = this.productBrandBindingSource_All;
             this.comboBoxProductBrand_Add.DisplayMember = "Id";
             this.comboBoxProductBrand_Add.Dock = System.Windows.Forms.DockStyle.Top;
@@ -768,10 +906,11 @@
             this.btnAddSupplier.TabIndex = 29;
             this.btnAddSupplier.Text = "Add Supplier";
             this.btnAddSupplier.UseVisualStyleBackColor = true;
+            this.btnAddSupplier.Click += new System.EventHandler(this.btnAddSupplier_Click);
             // 
             // numPrice
             // 
-            this.numPrice.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.productBindingSource, "Price", true));
+            this.numPrice.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.productBindingSource, "Price", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.numPrice.Dock = System.Windows.Forms.DockStyle.Fill;
             this.numPrice.Location = new System.Drawing.Point(349, 3);
             this.numPrice.Name = "numPrice";
@@ -835,7 +974,7 @@
             this.button5.Text = "Search";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // ProductForm
+            // ProductForm_Copy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -844,7 +983,7 @@
             this.Controls.Add(this.groupBoxActions);
             this.Controls.Add(this.groupBoxDetails);
             this.Controls.Add(this.groupBoxProducts);
-            this.Name = "ProductForm";
+            this.Name = "ProductForm_Copy";
             this.Text = "Product Forms";
             this.groupBoxProducts.ResumeLayout(false);
             this.tableLayoutPanelProducts.ResumeLayout(false);
@@ -865,6 +1004,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.promotionsBindingSource)).EndInit();
             this.groupBoxActions.ResumeLayout(false);
             this.tableLayoutPanelActionButtons.ResumeLayout(false);
+            this.tableLayoutPanelAddTypesAndSupplier.ResumeLayout(false);
+            this.groupBoxSelectedTypes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSelectedTypes)).EndInit();
+            this.groupBoxSelectedSuppliers.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSelectedSuppliers)).EndInit();
             this.tableLayoutPanelProductsDetail.ResumeLayout(false);
             this.tableLayoutPanelProductsDetail.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).EndInit();
@@ -887,6 +1031,9 @@
         private System.Windows.Forms.BindingSource productBindingSource;
         private System.Windows.Forms.GroupBox groupBoxProductTypes;
         private System.Windows.Forms.DataGridView productTypesDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn2;
         private System.Windows.Forms.BindingSource productTypesBindingSource;
         private System.Windows.Forms.GroupBox groupBoxSuppliers;
         private System.Windows.Forms.DataGridView suppliersDataGridView;
@@ -899,6 +1046,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn productBrandNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn detailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isActiveDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn3;
         private System.Windows.Forms.GroupBox groupBoxActions;
         private System.Windows.Forms.CheckBox checkBoxShowLocked;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelProducts;
@@ -909,8 +1061,14 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelActionButtons;
         private System.Windows.Forms.Button btnAddProduct;
-        private System.Windows.Forms.Button btnSaveChanges;
+        private System.Windows.Forms.Button btnEditProduct;
+        private System.Windows.Forms.Button btnLockProduct;
         private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelAddTypesAndSupplier;
+        private System.Windows.Forms.GroupBox groupBoxSelectedTypes;
+        private System.Windows.Forms.DataGridView dataGridViewSelectedTypes;
+        private System.Windows.Forms.GroupBox groupBoxSelectedSuppliers;
+        private System.Windows.Forms.DataGridView dataGridViewSelectedSuppliers;
         private System.Windows.Forms.Button btnDELETE;
         private System.Windows.Forms.BindingSource productTypeBindingSource_All;
         private System.Windows.Forms.BindingSource supplierBindingSource_All;
@@ -926,15 +1084,12 @@
         private System.Windows.Forms.Button btnAddProductType;
         private System.Windows.Forms.Button btnAddSupplier;
         private System.Windows.Forms.NumericUpDown numPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewColumnSelectedTypesId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewColumnSelectedTypesName;
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumnDeleteSelectedType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewColumnSelectedSupplierId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewColumnSelectedSupplierName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewColumnSelectedSupplierAddress;
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumnDeleteSelectedSupplier;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn3;
     }
 }

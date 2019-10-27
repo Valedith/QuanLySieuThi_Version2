@@ -29,7 +29,7 @@ namespace QuanLySieuThi_Version2
             // from the database.
             // The data is materialized as entities. The entities are managed by
             // the DbContext instance.
-            _context.ProductTypes.Load();
+            _context.Products.Include(productTypesBindingSource=>productTypesBindingSource.ProductTypes).Load();
 
             // Bind the categoryBindingSource.DataSource to
             // all the Unchanged, Modified and Added Category objects that
@@ -38,8 +38,8 @@ namespace QuanLySieuThi_Version2
             // ObservableCollection<TEntity> returned by
             // the DbSet.Local property to get the BindingList<T>
             // in order to facilitate two-way binding in WinForms.
-            this.productTypeBindingSource.DataSource =
-                _context.ProductTypes.Local.ToBindingList();
+            this.productTypesBindingSource.DataSource =
+                _context.Products.Local.ToBindingList();
         }
 
         private void productBrandBindingNavigatorSaveItem_Click(object sender, EventArgs e)

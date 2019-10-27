@@ -90,6 +90,12 @@
     <Compile Include="GUIs\Manager\ProductBrandForm.Designer.cs">
       <DependentUpon>ProductBrandForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUIs\Manager\ProductForm - Copy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIs\Manager\ProductForm - Copy.Designer.cs">
+      <DependentUpon>ProductForm - Copy.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUIs\Manager\ProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +166,18 @@
     <Compile Include="Migrations\201910250500044_AddSupplierBack.designer.cs">
       <DependentUpon>201910250500044_AddSupplierBack.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910261916227_DeleteIsUniqueInProductBrand.cs" />
+    <Compile Include="Migrations\201910261916227_DeleteIsUniqueInProductBrand.designer.cs">
+      <DependentUpon>201910261916227_DeleteIsUniqueInProductBrand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910261920002_DeleteIsUniqueInProductType.cs" />
+    <Compile Include="Migrations\201910261920002_DeleteIsUniqueInProductType.designer.cs">
+      <DependentUpon>201910261920002_DeleteIsUniqueInProductType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910261927580_AddUniquesBack.cs" />
+    <Compile Include="Migrations\201910261927580_AddUniquesBack.designer.cs">
+      <DependentUpon>201910261927580_AddUniquesBack.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -177,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUIs\Manager\ProductBrandForm.resx">
       <DependentUpon>ProductBrandForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIs\Manager\ProductForm - Copy.resx">
+      <DependentUpon>ProductForm - Copy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUIs\Manager\ProductForm.resx">
       <DependentUpon>ProductForm.cs</DependentUpon>
@@ -216,6 +237,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910250500044_AddSupplierBack.resx">
       <DependentUpon>201910250500044_AddSupplierBack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910261916227_DeleteIsUniqueInProductBrand.resx">
+      <DependentUpon>201910261916227_DeleteIsUniqueInProductBrand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910261920002_DeleteIsUniqueInProductType.resx">
+      <DependentUpon>201910261920002_DeleteIsUniqueInProductType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910261927580_AddUniquesBack.resx">
+      <DependentUpon>201910261927580_AddUniquesBack.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

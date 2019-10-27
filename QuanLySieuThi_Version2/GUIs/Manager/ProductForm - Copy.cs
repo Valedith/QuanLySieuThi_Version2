@@ -14,13 +14,13 @@ using System.Windows.Forms;
 
 namespace QuanLySieuThi_Version2.GUIs.Manager
 {
-    public partial class ProductForm : Form
+    public partial class ProductForm_Copy : Form
     {
         ProductBUS bus = new ProductBUS();
         ObservableListSource<ProductType> selectedProductTypes;
         ObservableListSource<Supplier> selectedSuppliers;
 
-        public ProductForm()
+        public ProductForm_Copy()
         {
             InitializeComponent();
             selectedProductTypes = new ObservableListSource<ProductType>();
@@ -97,76 +97,70 @@ namespace QuanLySieuThi_Version2.GUIs.Manager
                                         isActiveCheckBox.Checked,
                                         productBrandBindingSource_All.Current as ProductBrand
                                         );
-                product.ProductTypes = selectedProductTypes;
-                CustomResult cr = bus.AddProduct(product);
-                if (cr.Result == CustomResultType.Succeed)
-                {
-                    MessageBox.Show("DONE");
-                    //dataGridViewSelectedTypes.Rows.Clear();
-                    //dataGridViewSelectedSuppliers.Rows.Clear();
-                    selectedSuppliers.Clear();
-                    selectedProductTypes.Clear();
-                }
-                else
-                {
-                    throw new Exception(cr.ErrorMessage);
-                }
+            product.ProductTypes = selectedProductTypes;
+            CustomResult cr = bus.AddProduct(product);
+            if (cr.Result == CustomResultType.Succeed)
+            {
+                MessageBox.Show("DONE");
+                dataGridViewSelectedTypes.Rows.Clear();
+                dataGridViewSelectedSuppliers.Rows.Clear();
+                selectedSuppliers.Clear();
+                selectedProductTypes.Clear();
             }
+            else
+            {
+                throw new Exception(cr.ErrorMessage);
+            }
+        }
             catch (Exception ex)
             {
                 ShowErrorMessagerBox(ex.Message);
-            }
-        }
+    }
+}
 
-        private void productTypesDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //if click is on new row or header row
-            if (e.RowIndex == productTypesDataGridView.NewRowIndex || e.RowIndex < 0)
-                return;
-
-            //Check if click is on specific column 
-            if (e.ColumnIndex == productTypesDataGridView.Columns["dataGridViewButtonColumnDeleteSelectedType"].Index)
-            {
-                productTypesDataGridView.Rows.RemoveAt(e.RowIndex);
-                //selectedProductTypes.RemoveAt(e.RowIndex);
-            }
-        }
-
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                bus.ReloadContext();
-                PopulateProductBindingSource(checkBoxShowLocked.Checked);
-
-                productDataGridView.Refresh();
-                productTypesDataGridView.Refresh();
-                suppliersDataGridView.Refresh();
-            }
-            catch (Exception ex)
-            {
-                ShowErrorMessagerBox(ex.Message);
-            }
-
-        }
-
+        //Add Selected Types and Suppliers
         private void btnAddProductType_Click(object sender, EventArgs e)
         {
             try
             {
-                ProductType productType = productTypeBindingSource_All.Current as ProductType;
-                if (productType == null) { return; }
-                var currentProduct = productBindingSource.Current as Product;
-                if(currentProduct == null) { return; }
-                foreach (var type in currentProduct.ProductTypes)
+                var selectedProductType = productTypeBindingSource_All.Current as ProductType;
+                if (selectedProductType == null) { return; }
+                foreach (DataGridViewRow row in dataGridViewSelectedTypes.Rows)
                 {
-                    if (productType.Id == type.Id)
+                    if (row.Cells[0].Value.ToString() == selectedProductType.Id.ToString())
                     {
-                        ShowErrorMessagerBox("This Types already added");
+                        ShowErrorMessagerBox("Already had this Type");
                         return;
                     }
                 }
-                currentProduct.ProductTypes.Add(productType);
+                var index = dataGridViewSelectedTypes.Rows.Add();
+                dataGridViewSelectedTypes.Rows[index].Cells[0].Value = selectedProductType.Id;
+                dataGridViewSelectedTypes.Rows[index].Cells[1].Value = selectedProductType.Name;
+                selectedProductTypes.Add(selectedProductType);
+            }
+            catch (Exception ex)
+            {
+                ShowErrorMessagerBox(ex.Message);
+            }
+        }
+        private void btnAddSupplier_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var selectedSupplier = supplierBindingSource_All.Current as Supplier;
+                if (selectedSupplier == null) { return; }
+                foreach (DataGridViewRow row in dataGridViewSelectedSuppliers.Rows)
+                {
+                    if (row.Cells[0].Value.ToString() == selectedSupplier.Id.ToString())
+                    {
+                        ShowErrorMessagerBox("Already had this Supplier");
+                        return;
+                    }
+                }
+                var index = dataGridViewSelectedTypes.Rows.Add();
+                dataGridViewSelectedTypes.Rows[index].Cells[0].Value = selectedSupplier.Id;
+                dataGridViewSelectedTypes.Rows[index].Cells[1].Value = selectedSupplier.Name;
+                selectedSuppliers.Add(selectedSupplier);
             }
             catch (Exception ex)
             {
@@ -174,16 +168,40 @@ namespace QuanLySieuThi_Version2.GUIs.Manager
             }
         }
 
-        private void btnEditProduct_Click(object sender, EventArgs e)
+        //Delete Selected Types and Suppliers
+        private void dataGridViewSelectedTypes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var currentProduct = productBindingSource.Current as Product;
-            if (currentProduct == null) { return; }
-            CustomResult cr = bus.EditProducts(currentProduct);
-            if(cr.Result == CustomResultType.Succeed)
+            //if click is on new row or header row
+            if (e.RowIndex == dataGridViewSelectedTypes.NewRowIndex || e.RowIndex < 0)
+                return;
+
+            //Check if click is on specific column 
+            if (e.ColumnIndex == dataGridViewSelectedTypes.Columns["dataGridViewButtonColumnDeleteSelectedType"].Index)
             {
-                MessageBox.Show("DONE");
+                dataGridViewSelectedTypes.Rows.RemoveAt(e.RowIndex);
+                selectedProductTypes.RemoveAt(e.RowIndex);
             }
         }
+        private void dataGridViewSelectedSuppliers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //if click is on new row or header row
+            if (e.RowIndex == dataGridViewSelectedSuppliers.NewRowIndex || e.RowIndex < 0)
+                return;
+
+            //Check if click is on specific column 
+            if (e.ColumnIndex == dataGridViewSelectedTypes.Columns["dataGridViewButtonColumnDeleteSelectedSupplier"].Index)
+            {
+                dataGridViewSelectedSuppliers.Rows.RemoveAt(e.RowIndex);
+                selectedSuppliers.RemoveAt(e.RowIndex);
+            }
+
+        }
+
         #endregion
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
