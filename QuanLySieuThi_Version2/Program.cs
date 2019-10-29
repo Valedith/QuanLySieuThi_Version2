@@ -14,7 +14,7 @@ namespace QuanLySieuThi_Version2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new ProductTypeForm());
+            Application.Run(new ProductTypeForm());
             //Application.Run(new ProductBrandForm());
 
             Application.Run(new ProductForm());

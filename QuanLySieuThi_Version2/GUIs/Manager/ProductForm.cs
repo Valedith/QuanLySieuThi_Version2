@@ -135,12 +135,12 @@ namespace QuanLySieuThi_Version2.GUIs.Manager
                 ProductType productType = productTypeBindingSource_All.Current as ProductType;
                 if (productType == null) { return; }
                 var currentProduct = productBindingSource.Current as Product;
-                if(currentProduct == null) { return; }
+                if (currentProduct == null) { return; }
                 foreach (var type in currentProduct.ProductTypes)
                 {
                     if (productType.Id == type.Id)
                     {
-                        ShowErrorMessagerBox("This Types already added");
+                        ShowErrorMessagerBox("This Type has already been added");
                         return;
                     }
                 }
@@ -154,14 +154,117 @@ namespace QuanLySieuThi_Version2.GUIs.Manager
 
         private void btnEditProduct_Click(object sender, EventArgs e)
         {
-            var currentProduct = productBindingSource.Current as Product;
-            if (currentProduct == null) { return; }
-            CustomResult cr = bus.EditProducts(currentProduct);
-            if(cr.Result == CustomResultType.Succeed)
+            if(!GetConfirmation("Do you want to edit this product?","Edit Confirm")) { return; }
+            try
             {
-                MessageBox.Show("DONE");
+                Product currentProduct;
+                if (productBindingSource.Current as Product != null)
+                {
+                    currentProduct=productBindingSource.Current as Product;
+                }
+                else
+                {
+                    throw new Exception("Couldn't get this Product");
+                }
+                if (comboBoxProductBrand_Add.SelectedValue != null)
+                {
+                    currentProduct.Name = txtProductName.Text.Trim();
+                    currentProduct.Quantity = (int)numQuantity.Value;
+                    currentProduct.Price = numPrice.Value;
+                    currentProduct.Detail = txtDetail.Text.Trim();
+                    currentProduct.Unit = txtUnit.Text.Trim();
+                    currentProduct.IsActive = isActiveCheckBox.Checked;
+                    currentProduct.ProductBrandId = (int)comboBoxProductBrand_Add.SelectedValue;
+                }
+                else
+                {
+                    throw new Exception("Couldn't get Product Brand");
+                }
+                
+                
+                CustomResult cr = bus.EditProducts(currentProduct);
+                if (cr.Result == CustomResultType.Succeed)
+                {
+                    MessageBox.Show("Product edited", "Edit Complete",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    productDataGridView.Refresh();
+                }
+                else if (cr.Result == CustomResultType.InvalidModelState)
+                {
+                    Validator.ShowErrorMessageBoxes();
+                    return;
+                }
+                else
+                {
+                    throw new Exception(cr.ErrorMessage);
+                }
+            }
+            catch (Exception ex)
+            {
+                ShowErrorMessagerBox(ex.Message);
+                txtProductName.Focus();
             }
         }
         #endregion
+
+        private void suppliersDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //if click is on new row or header row
+            if (e.RowIndex == suppliersDataGridView.NewRowIndex || e.RowIndex < 0)
+                return;
+
+            //Check if click is on specific column 
+            if (e.ColumnIndex == suppliersDataGridView.Columns["dataGridViewButtonColumnDeleteSelectedSupplier"].Index)
+            {
+                suppliersDataGridView.Rows.RemoveAt(e.RowIndex);
+                //selectedProductTypes.RemoveAt(e.RowIndex);
+            }
+        }
+
+        private void btnAddSupplier_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Supplier supplier = supplierBindingSource_All.Current as Supplier;
+                if (supplier == null) { return; }
+                var currentProduct = productBindingSource.Current as Product;
+                if (currentProduct == null) { return; }
+                foreach (var item in currentProduct.Suppliers)
+                {
+                    if (item.Id == supplier.Id)
+                    {
+                        ShowErrorMessagerBox("This Supplier has already been added");
+                        return;
+                    }
+                }
+                currentProduct.Suppliers.Add(supplier);
+            }
+            catch (Exception ex)
+            {
+                ShowErrorMessagerBox(ex.Message);
+            }
+        }
+
+        private void btnDELETE_Click(object sender, EventArgs e)
+        {
+            if(!GetConfirmation("Do you want to delete this product ?", "Delete confirm")) { return; }
+            if(MessageBox.Show("ARE YOU SURE TO DELETE THIS PRODUCT, THIS ACTION CAN CAUSE DATA LOSS",
+                                       "DELETE CONFIRM",
+                                       MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No){ return; }
+            if (MessageBox.Show("THIS FEATURE IS STILL UNDER DEVELOP SO YOU CAN'T GET YOUR DATA BACK, ARE YOU SURE TO PROCEED?",
+                                       "DELETE CONFIRM",
+                                       MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == DialogResult.No) { return; }
+            try
+            {
+                CustomResult cr = bus.DeleteProduct((productBindingSource.Current as Product).Id);
+                if(cr.Result== CustomResultType.Succeed)
+                {
+                    MessageBox.Show(cr.ErrorMessage);
+                }
+            }
+            catch(Exception ex)
+            {
+                ShowErrorMessagerBox(ex.Message);
+            }
+        }
     }
 }

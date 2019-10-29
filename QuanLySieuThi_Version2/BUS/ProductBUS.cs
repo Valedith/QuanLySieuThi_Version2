@@ -141,14 +141,48 @@ namespace QuanLySieuThi_Version2.BUS
             }
             catch(Exception ex)
             {
-                return new CustomResult(CustomResultType.UnexpectedError);
+                return new CustomResult(CustomResultType.UnexpectedError, "Some unexpedter error has occured.\n"+ex.Message);
             }
 
         }
 
         public CustomResult EditProducts(Product product)
         {
-            db.SaveChanges();
+            try
+            {
+                ReloadContext();
+                var newProduct = db.Products.Find(product.Id);
+                db.Entry(newProduct).CurrentValues.SetValues(product);
+
+                newProduct.ProductBrand = db.ProductBrands.Find(product.ProductBrandId);
+                newProduct.ProductTypes.Clear();
+                newProduct.Suppliers.Clear();
+                foreach (var type in product.ProductTypes)
+                {
+
+                    newProduct.ProductTypes.Add(db.ProductTypes.Find(type.Id));
+                }
+                foreach (var supplier in product.Suppliers)
+                {
+                    newProduct.Suppliers.Add(db.Suppliers.Find(supplier.Id));
+                }
+                if(!ModelState.IsValid(product))
+                {
+                    return new CustomResult(CustomResultType.InvalidModelState);
+                }
+                db.Set<Product>().AddOrUpdate(newProduct);
+                db.SaveChanges();
+                return new CustomResult(CustomResultType.Succeed);
+            }
+            catch(Exception ex)
+            {
+                return new CustomResult(CustomResultType.UnexpectedError, "Some unexpected error has occured.\n" + ex.Message);
+            }
+        }
+
+        public CustomResult DeleteProduct(int productId)
+        {
+            db.Products.Remove(db.Products.Find(productId));
             return new CustomResult(CustomResultType.Succeed);
         }
     }

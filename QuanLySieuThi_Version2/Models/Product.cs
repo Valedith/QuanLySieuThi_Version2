@@ -7,15 +7,6 @@ namespace QuanLySieuThi_Version2.Models
     class Product
     {
         public Product() { }
-        public Product(string name, int quantity, decimal price, string detail, bool isActive, ProductBrand brand)
-        {
-            Name = name;
-            Quantity = quantity;
-            Price = price;
-            Detail = detail;
-            IsActive = isActive;
-            ProductBrand = brand;
-        }
         public Product(string name, int quantity, decimal price, string unit,string detail, bool isActive, int brandId)
         {
             Name = name;
@@ -26,17 +17,7 @@ namespace QuanLySieuThi_Version2.Models
             IsActive = isActive;
             ProductBrandId = brandId;
         }
-        public Product(string name, int quantity, decimal price, string detail, string unit,bool isActive, int brandId, ProductBrand productBrand)
-        {
-            Name = name;
-            Quantity = quantity;
-            Price = price;
-            Unit = unit;
-            Detail = detail;
-            IsActive = isActive;
-            ProductBrandId = brandId;
-            ProductBrand = productBrand;
-        }
+
 
         #region Properties
         public int Id { get; set; }

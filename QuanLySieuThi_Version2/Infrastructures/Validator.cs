@@ -24,12 +24,18 @@ namespace QuanLySieuThi_Version2.Infrastructures
 
         public void DisplayModelValidationErrorsAndFocus(Type type)
         {
+            ShowErrorMessageBoxes();
+            GetErrorControl(type.Name, ModelState.ErrorPropertyName).Focus();
+        }
+
+        public static void ShowErrorMessageBoxes()
+        {
             foreach (var error in ModelState.ErrorMessages)
                 MessageBox.Show(error, "Error"
                                     , MessageBoxButtons.OK
                                     , MessageBoxIcon.Error);
-            GetErrorControl(type.Name, ModelState.ErrorPropertyName).Focus();
         }
+
         public static bool IsPhoneNumber(string input)
         {
             if (String.IsNullOrEmpty(input))

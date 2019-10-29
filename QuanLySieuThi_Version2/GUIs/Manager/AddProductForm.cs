@@ -205,7 +205,7 @@ namespace QuanLySieuThi_Version2.GUIs.Manager
                 return;
 
             //Check if click is on specific column 
-            if (e.ColumnIndex == dataGridViewSelectedTypes.Columns["dataGridViewButtonColumnDeleteSelectedSupplier"].Index)
+            if (e.ColumnIndex == dataGridViewSelectedSuppliers.Columns["dataGridViewButtonColumnDeleteSelectedSupplier"].Index)
             {
                 dataGridViewSelectedSuppliers.Rows.RemoveAt(e.RowIndex);
                 selectedSuppliers.RemoveAt(e.RowIndex);

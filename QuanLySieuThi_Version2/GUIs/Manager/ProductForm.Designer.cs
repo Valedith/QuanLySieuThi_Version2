@@ -95,7 +95,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxSearchOptions = new System.Windows.Forms.ComboBox();
             this.button5 = new System.Windows.Forms.Button();
             label2 = new System.Windows.Forms.Label();
             nameLabel1 = new System.Windows.Forms.Label();
@@ -221,9 +221,9 @@
             // 
             isActiveLabel.AutoSize = true;
             isActiveLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            isActiveLabel.Location = new System.Drawing.Point(63, 0);
+            isActiveLabel.Location = new System.Drawing.Point(55, 0);
             isActiveLabel.Name = "isActiveLabel";
-            isActiveLabel.Size = new System.Drawing.Size(60, 24);
+            isActiveLabel.Size = new System.Drawing.Size(51, 24);
             isActiveLabel.TabIndex = 27;
             isActiveLabel.Text = "Is Active:";
             isActiveLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -507,6 +507,7 @@
             this.suppliersDataGridView.ReadOnly = true;
             this.suppliersDataGridView.Size = new System.Drawing.Size(383, 197);
             this.suppliersDataGridView.TabIndex = 0;
+            this.suppliersDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.suppliersDataGridView_CellContentClick);
             // 
             // dataGridViewButtonColumnDeleteSelectedSupplier
             // 
@@ -554,12 +555,11 @@
             // 
             // dataGridViewCheckBoxColumn3
             // 
-            this.dataGridViewCheckBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewCheckBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewCheckBoxColumn3.DataPropertyName = "IsActive";
             this.dataGridViewCheckBoxColumn3.HeaderText = "IsActive";
             this.dataGridViewCheckBoxColumn3.Name = "dataGridViewCheckBoxColumn3";
             this.dataGridViewCheckBoxColumn3.ReadOnly = true;
-            this.dataGridViewCheckBoxColumn3.Width = 51;
             // 
             // suppliersBindingSource
             // 
@@ -615,6 +615,7 @@
             this.btnDELETE.TabIndex = 6;
             this.btnDELETE.Text = "DELETE";
             this.btnDELETE.UseVisualStyleBackColor = false;
+            this.btnDELETE.Click += new System.EventHandler(this.btnDELETE_Click);
             // 
             // btnAddProduct
             // 
@@ -634,7 +635,7 @@
             this.btnSaveChanges.Name = "btnSaveChanges";
             this.btnSaveChanges.Size = new System.Drawing.Size(122, 26);
             this.btnSaveChanges.TabIndex = 0;
-            this.btnSaveChanges.Text = "Save Changes";
+            this.btnSaveChanges.Text = "Edit Product";
             this.btnSaveChanges.UseVisualStyleBackColor = true;
             this.btnSaveChanges.Click += new System.EventHandler(this.btnEditProduct_Click);
             // 
@@ -688,7 +689,7 @@
             // 
             // txtDetail
             // 
-            this.txtDetail.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Detail", true));
+            this.txtDetail.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Detail", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txtDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtDetail.Location = new System.Drawing.Point(93, 57);
             this.txtDetail.Multiline = true;
@@ -699,16 +700,21 @@
             // 
             // numQuantity
             // 
-            this.numQuantity.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.productBindingSource, "Quantity", true));
+            this.numQuantity.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.productBindingSource, "Quantity", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.numQuantity.Dock = System.Windows.Forms.DockStyle.Fill;
             this.numQuantity.Location = new System.Drawing.Point(93, 27);
+            this.numQuantity.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
             this.numQuantity.Name = "numQuantity";
             this.numQuantity.Size = new System.Drawing.Size(160, 20);
             this.numQuantity.TabIndex = 25;
             // 
             // txtProductName
             // 
-            this.txtProductName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Name", true));
+            this.txtProductName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Name", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txtProductName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtProductName.Location = new System.Drawing.Point(93, 3);
             this.txtProductName.Name = "txtProductName";
@@ -717,7 +723,7 @@
             // 
             // comboBoxProductBrand_Add
             // 
-            this.comboBoxProductBrand_Add.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "ProductBrand.Name", true));
+            this.comboBoxProductBrand_Add.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "ProductBrand.Name", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.comboBoxProductBrand_Add.DataSource = this.productBrandBindingSource_All;
             this.comboBoxProductBrand_Add.DisplayMember = "Name";
             this.comboBoxProductBrand_Add.Dock = System.Windows.Forms.DockStyle.Top;
@@ -787,12 +793,18 @@
             this.btnAddSupplier.TabIndex = 29;
             this.btnAddSupplier.Text = "Add Supplier";
             this.btnAddSupplier.UseVisualStyleBackColor = true;
+            this.btnAddSupplier.Click += new System.EventHandler(this.btnAddSupplier_Click);
             // 
             // numPrice
             // 
-            this.numPrice.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.productBindingSource, "Price", true));
+            this.numPrice.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.productBindingSource, "Price", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.numPrice.Dock = System.Windows.Forms.DockStyle.Fill;
             this.numPrice.Location = new System.Drawing.Point(349, 3);
+            this.numPrice.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
             this.numPrice.Name = "numPrice";
             this.numPrice.Size = new System.Drawing.Size(160, 20);
             this.numPrice.TabIndex = 30;
@@ -802,7 +814,7 @@
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.27273F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.72727F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel2.Controls.Add(this.isActiveCheckBox, 2, 0);
             this.tableLayoutPanel2.Controls.Add(isActiveLabel, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.txtUnit, 0, 0);
@@ -816,21 +828,21 @@
             // 
             // isActiveCheckBox
             // 
-            this.isActiveCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.productBindingSource, "IsActive", true));
+            this.isActiveCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.productBindingSource, "IsActive", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.isActiveCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.isActiveCheckBox.Location = new System.Drawing.Point(129, 3);
+            this.isActiveCheckBox.Location = new System.Drawing.Point(112, 3);
             this.isActiveCheckBox.Name = "isActiveCheckBox";
-            this.isActiveCheckBox.Size = new System.Drawing.Size(28, 18);
+            this.isActiveCheckBox.Size = new System.Drawing.Size(45, 18);
             this.isActiveCheckBox.TabIndex = 28;
             this.isActiveCheckBox.UseVisualStyleBackColor = true;
             // 
             // txtUnit
             // 
-            this.txtUnit.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Unit", true));
+            this.txtUnit.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Unit", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txtUnit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtUnit.Location = new System.Drawing.Point(3, 3);
             this.txtUnit.Name = "txtUnit";
-            this.txtUnit.Size = new System.Drawing.Size(54, 20);
+            this.txtUnit.Size = new System.Drawing.Size(46, 20);
             this.txtUnit.TabIndex = 29;
             // 
             // tableLayoutPanel1
@@ -842,7 +854,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.24711F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox1, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxSearchOptions, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.button5, 3, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 16);
@@ -871,14 +883,14 @@
             this.textBox1.Size = new System.Drawing.Size(211, 20);
             this.textBox1.TabIndex = 1;
             // 
-            // comboBox1
+            // comboBoxSearchOptions
             // 
-            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(270, 3);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(140, 21);
-            this.comboBox1.TabIndex = 2;
+            this.comboBoxSearchOptions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBoxSearchOptions.FormattingEnabled = true;
+            this.comboBoxSearchOptions.Location = new System.Drawing.Point(270, 3);
+            this.comboBoxSearchOptions.Name = "comboBoxSearchOptions";
+            this.comboBoxSearchOptions.Size = new System.Drawing.Size(140, 21);
+            this.comboBoxSearchOptions.TabIndex = 2;
             // 
             // button5
             // 
@@ -955,7 +967,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxSearchOptions;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelActionButtons;
         private System.Windows.Forms.Button btnAddProduct;

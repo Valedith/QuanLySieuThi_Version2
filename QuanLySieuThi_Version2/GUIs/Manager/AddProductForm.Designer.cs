@@ -40,6 +40,7 @@
             System.Windows.Forms.Label label1;
             this.groupBoxActions = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanelActionButtons = new System.Windows.Forms.TableLayoutPanel();
+            this.btnAddAndClose = new System.Windows.Forms.Button();
             this.btnAddProduct = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.tableLayoutPanelAddTypesAndSupplier = new System.Windows.Forms.TableLayoutPanel();
@@ -70,7 +71,6 @@
             this.btnAddProductType = new System.Windows.Forms.Button();
             this.btnAddSupplier = new System.Windows.Forms.Button();
             this.numPrice = new System.Windows.Forms.NumericUpDown();
-            this.btnAddAndClose = new System.Windows.Forms.Button();
             label2 = new System.Windows.Forms.Label();
             nameLabel1 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -183,9 +183,9 @@
             // 
             isActiveLabel.AutoSize = true;
             isActiveLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            isActiveLabel.Location = new System.Drawing.Point(126, 0);
+            isActiveLabel.Location = new System.Drawing.Point(123, 0);
             isActiveLabel.Name = "isActiveLabel";
-            isActiveLabel.Size = new System.Drawing.Size(109, 25);
+            isActiveLabel.Size = new System.Drawing.Size(106, 25);
             isActiveLabel.TabIndex = 27;
             isActiveLabel.Text = "Is Active:";
             isActiveLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -231,6 +231,17 @@
             this.tableLayoutPanelActionButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelActionButtons.Size = new System.Drawing.Size(907, 32);
             this.tableLayoutPanelActionButtons.TabIndex = 5;
+            // 
+            // btnAddAndClose
+            // 
+            this.btnAddAndClose.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAddAndClose.Location = new System.Drawing.Point(229, 3);
+            this.btnAddAndClose.Name = "btnAddAndClose";
+            this.btnAddAndClose.Size = new System.Drawing.Size(220, 26);
+            this.btnAddAndClose.TabIndex = 1;
+            this.btnAddAndClose.Text = "Add And Close Window";
+            this.btnAddAndClose.UseVisualStyleBackColor = true;
+            this.btnAddAndClose.Click += new System.EventHandler(this.btnAddAndClose_Click);
             // 
             // btnAddProduct
             // 
@@ -428,7 +439,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.6F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.4F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 119F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 125F));
             this.tableLayoutPanel1.Controls.Add(this.isActiveCheckBox, 2, 0);
             this.tableLayoutPanel1.Controls.Add(isActiveLabel, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtUnit, 0, 0);
@@ -445,9 +456,9 @@
             this.isActiveCheckBox.Checked = true;
             this.isActiveCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.isActiveCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.isActiveCheckBox.Location = new System.Drawing.Point(241, 3);
+            this.isActiveCheckBox.Location = new System.Drawing.Point(235, 3);
             this.isActiveCheckBox.Name = "isActiveCheckBox";
-            this.isActiveCheckBox.Size = new System.Drawing.Size(114, 19);
+            this.isActiveCheckBox.Size = new System.Drawing.Size(120, 19);
             this.isActiveCheckBox.TabIndex = 28;
             this.isActiveCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -456,7 +467,7 @@
             this.txtUnit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtUnit.Location = new System.Drawing.Point(3, 3);
             this.txtUnit.Name = "txtUnit";
-            this.txtUnit.Size = new System.Drawing.Size(117, 20);
+            this.txtUnit.Size = new System.Drawing.Size(114, 20);
             this.txtUnit.TabIndex = 29;
             // 
             // txtDetail
@@ -473,6 +484,11 @@
             // 
             this.numQuantity.Dock = System.Windows.Forms.DockStyle.Fill;
             this.numQuantity.Location = new System.Drawing.Point(93, 28);
+            this.numQuantity.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
             this.numQuantity.Name = "numQuantity";
             this.numQuantity.Size = new System.Drawing.Size(357, 20);
             this.numQuantity.TabIndex = 25;
@@ -562,20 +578,14 @@
             // 
             this.numPrice.Dock = System.Windows.Forms.DockStyle.Fill;
             this.numPrice.Location = new System.Drawing.Point(546, 3);
+            this.numPrice.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
             this.numPrice.Name = "numPrice";
             this.numPrice.Size = new System.Drawing.Size(358, 20);
             this.numPrice.TabIndex = 30;
-            // 
-            // btnAddAndClose
-            // 
-            this.btnAddAndClose.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAddAndClose.Location = new System.Drawing.Point(229, 3);
-            this.btnAddAndClose.Name = "btnAddAndClose";
-            this.btnAddAndClose.Size = new System.Drawing.Size(220, 26);
-            this.btnAddAndClose.TabIndex = 1;
-            this.btnAddAndClose.Text = "Add And Close Window";
-            this.btnAddAndClose.UseVisualStyleBackColor = true;
-            this.btnAddAndClose.Click += new System.EventHandler(this.btnAddAndClose_Click);
             // 
             // AddProductForm
             // 
